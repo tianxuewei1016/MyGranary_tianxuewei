@@ -7,4 +7,6 @@
     <color name="white">#ffffff</color>
     <color name="text_bottombar">#e43a3d</color>
     <color name="background_color">#16171A</color>
+    <color name="color_red">#E21918</color>
+    <color name="color_huise">#4C4F54</color>
 </resources>
