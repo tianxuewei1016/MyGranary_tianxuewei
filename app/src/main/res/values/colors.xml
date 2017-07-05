@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="text_color_c5">#c5c5c5</color>
+    <color name="white">#ffffff</color>
+    <color name="text_bottombar">#e43a3d</color>
+    <color name="bottombar_tab_off">#2f2005</color>
+</resources>
