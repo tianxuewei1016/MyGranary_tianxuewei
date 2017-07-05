@@ -7,6 +7,8 @@ import android.widget.TextView;
 import com.mygranary_tianxuewei.R;
 import com.mygranary_tianxuewei.base.BaseFragment;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 
 import static com.mygranary_tianxuewei.R.id.tv_shop_writ;
@@ -25,6 +27,9 @@ public class ShopFragment extends BaseFragment {
     @Bind(R.id.iv_shop_cart)
     ImageView ivShopCart;
 
+    private ArrayList<BaseFragment> fragments;
+    private String[] titles = {"分类", "品牌", "首页", "专题", "礼物"};
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_shop;
@@ -33,6 +38,16 @@ public class ShopFragment extends BaseFragment {
     @Override
     protected void initView() {
         tvShopWrit.setText("商店");
+        initFragment();
+    }
+
+    private void initFragment() {
+        fragments = new ArrayList<>();
+        fragments.add(new TypeFragment());   //分类
+        fragments.add(new BrandFragment());//品牌
+        fragments.add(new HomepageFragment());//首页
+        fragments.add(new SpecialFragment());//专题
+        fragments.add(new GiftFragment());//礼物
     }
 
     @Override
