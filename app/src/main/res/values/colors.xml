@@ -6,5 +6,5 @@
     <color name="text_color_c5">#c5c5c5</color>
     <color name="white">#ffffff</color>
     <color name="text_bottombar">#e43a3d</color>
-    <color name="bottombar_tab_off">#2f2005</color>
+    <color name="background_color">#16171A</color>
 </resources>

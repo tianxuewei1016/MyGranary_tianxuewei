@@ -27,7 +27,7 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initTitle() {
-        Glide.with(this).load(R.drawable.boot_animation_gif).into(welcomeIvIcon);
+        Glide.with(this).load(R.drawable.loading_start).into(welcomeIvIcon);
     }
 
     @Override
