@@ -10,11 +10,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * 作用：网络请求的工具类
  */
 
-public class RetrofiUtils {
-//    public static UserService getRecommendAPI() {
-//
-//        return createApi(UserService.class, ApiConstants.USER_BASE_URL);
-//    }
+public class RetrofitUtils {
+    public static UserService getTypeFragmentAPI() {
+
+        return createApi(UserService.class, ApiConstants.BASE_URL);
+    }
 
     /**
      * 根据传入的baseUrl，和api创建retrofit

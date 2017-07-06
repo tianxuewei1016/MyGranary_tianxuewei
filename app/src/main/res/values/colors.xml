@@ -9,4 +9,7 @@
     <color name="background_color">#16171A</color>
     <color name="color_red">#E21918</color>
     <color name="color_huise">#4C4F54</color>
+    <color name="color_tou">#1C1C1C</color>
+    <color name="color_brand">#2C3033</color>
+
 </resources>
