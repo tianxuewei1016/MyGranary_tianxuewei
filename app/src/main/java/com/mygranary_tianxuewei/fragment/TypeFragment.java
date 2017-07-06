@@ -1,5 +1,6 @@
 package com.mygranary_tianxuewei.fragment;
 
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +9,8 @@ import com.mygranary_tianxuewei.R;
 import com.mygranary_tianxuewei.adapter.TypeFragmentAdapter;
 import com.mygranary_tianxuewei.base.BaseFragment;
 import com.mygranary_tianxuewei.bean.TypeFragmentBean;
+import com.mygranary_tianxuewei.ui.MainActivity;
+import com.mygranary_tianxuewei.ui.ShopTypeActivity;
 import com.mygranary_tianxuewei.utils.RetrofitUtils;
 import com.mygranary_tianxuewei.widget.ComprehensiveItemDecoration;
 
@@ -109,6 +112,14 @@ public class TypeFragment extends BaseFragment {
                     return 2;
                 }
                 return 1;
+            }
+        });
+        adapter.setOnItemClickListener(new TypeFragmentAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(TypeFragmentBean.DataBean.ItemsBean itemsBean) {
+                startActivity(new Intent(context, ShopTypeActivity.class));
+                MainActivity mainActivity = (MainActivity) context;
+                mainActivity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
         });
     }

@@ -54,6 +54,25 @@ public class TypeFragmentAdapter extends RecyclerView.Adapter<TypeFragmentAdapte
         public MyViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            //设置item的点击事件
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        listener.OnItemClick(datas.getData().getItems().get(getLayoutPosition()));
+                    }
+                }
+            });
         }
+    }
+
+    public interface OnItemClickListener {
+        void OnItemClick(TypeFragmentBean.DataBean.ItemsBean itemsBean);
+    }
+
+    private OnItemClickListener listener;
+
+    public void setOnItemClickListener(OnItemClickListener l) {
+        this.listener = l;
     }
 }

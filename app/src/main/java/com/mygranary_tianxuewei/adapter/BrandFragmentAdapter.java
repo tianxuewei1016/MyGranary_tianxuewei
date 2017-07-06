@@ -28,14 +28,6 @@ public class BrandFragmentAdapter extends BaseAdapter {
     private final BrandFragmentBean.DataBean datas;
 
 
-//    private List<BrandFragmentBean> datas;
-//    private Context context;
-//
-//    public BrandFragmentAdapter(Context context) {
-//        this.context = context;
-//        datas = new ArrayList<>();
-//    }
-
     public BrandFragmentAdapter(Context context, BrandFragmentBean.DataBean data) {
         this.context = context;
         this.datas = data;

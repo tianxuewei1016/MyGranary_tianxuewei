@@ -85,7 +85,7 @@ public class BrandFragment extends BaseFragment {
     private void setUpAdapter(BrandFragmentBean brandFragmentBean) {
         if (brandFragmentBean.getData().getItems() != null && brandFragmentBean.getData().getItems().size() > 0) {
             BrandFragmentBean.DataBean data = brandFragmentBean.getData();
-            adapter = new BrandFragmentAdapter(context,data);
+            adapter = new BrandFragmentAdapter(context, data);
             lvBrand.setAdapter(adapter);
         }
     }
