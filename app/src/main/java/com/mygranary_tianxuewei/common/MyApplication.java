@@ -16,6 +16,11 @@ import com.squareup.leakcanary.RefWatcher;
  */
 
 public class MyApplication extends Application {
+    private static Context context;
+
+    public static Context getContext() {
+        return context;
+    }
 
     public static RefWatcher getRefWatcher(Context context) {
         MyApplication application = (MyApplication) context.getApplicationContext();
@@ -27,6 +32,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        context = this;
         //初始化logger打日志工具
         Logger.addLogAdapter(new AndroidLogAdapter());
 
@@ -37,8 +43,8 @@ public class MyApplication extends Application {
 //        CrashHandler.getInstance().init(this);
 
         //监听捕获异常
-        Crashabnormal instance = Crashabnormal.getInstance();
-        instance.init(getApplicationContext());
+//        Crashabnormal instance = Crashabnormal.getInstance();
+//        instance.init(getApplicationContext());
         //初始化Stetho调试工具
         Stetho.initialize(
                 Stetho.newInitializerBuilder(this)

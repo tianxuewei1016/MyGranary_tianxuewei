@@ -11,10 +11,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitUtils {
+    //分类
     public static UserService getTypeFragmentAPI() {
 
         return createApi(UserService.class, ApiConstants.BASE_URL);
     }
+    //品牌
+    public static UserService getBrandFragmentAPI() {
+
+        return createApi(UserService.class, ApiConstants.BASE_URL_BRAND);
+    }
+
 
     /**
      * 根据传入的baseUrl，和api创建retrofit
