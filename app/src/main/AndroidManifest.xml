@@ -29,8 +29,10 @@
         <activity
             android:name=".ui.ShopTypeActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.DetailsActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ui.DetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.SpecialActivity"></activity>
     </application>
 
 </manifest>

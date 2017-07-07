@@ -1,13 +1,15 @@
 package com.mygranary_tianxuewei.fragment;
 
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.widget.ListView;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.mygranary_tianxuewei.R;
 import com.mygranary_tianxuewei.adapter.SpecialAdapter;
 import com.mygranary_tianxuewei.base.BaseFragment;
 import com.mygranary_tianxuewei.bean.SpecialBean;
 import com.mygranary_tianxuewei.utils.RetrofitUtils;
+import com.mygranary_tianxuewei.widget.ComprehensiveItemDecoration;
 
 import butterknife.Bind;
 import rx.Subscriber;
@@ -23,7 +25,7 @@ import rx.schedulers.Schedulers;
 
 public class SpecialFragment extends BaseFragment {
     @Bind(R.id.lv_special)
-    ListView lvSpecial;
+    RecyclerView lvSpecial;
     @Bind(R.id.special_refresh_layout)
     SwipeRefreshLayout specialRefreshLayout;
     private SpecialAdapter adapter;
@@ -82,8 +84,13 @@ public class SpecialFragment extends BaseFragment {
 
     private void setUpAdapter(SpecialBean specialBean) {
         if (specialBean.getData().getItems() != null && specialBean.getData().getItems().size() > 0) {
-            adapter = new SpecialAdapter(context,specialBean.getData());
+            adapter = new SpecialAdapter(context, specialBean.getData());
             lvSpecial.setAdapter(adapter);
+            //设置布局管理器
+            GridLayoutManager manager = new GridLayoutManager(context, 1);
+            lvSpecial.setLayoutManager(manager);
+            //设置间距
+            lvSpecial.addItemDecoration(new ComprehensiveItemDecoration(18));
         }
     }
 }

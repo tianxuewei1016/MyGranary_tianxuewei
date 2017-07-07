@@ -11,10 +11,11 @@
         android:scaleType="fitXY" />
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:background="#44000000" />
+    <!--<ImageView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="240dp"-->
+    <!--android:background="#44000000"-->
+    <!--android:scaleType="fitXY" />-->
 
     <TextView
         android:id="@+id/tv_shop_special_item"
