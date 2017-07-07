@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:padding="10dp">
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/iv_hot"
@@ -27,9 +26,9 @@
     <TextView
         android:id="@+id/tv_brand_jex"
         android:layout_width="180dp"
+        android:layout_height="wrap_content"
         android:text="街古斯"
-        android:textColor="@color/white"
-        android:layout_height="wrap_content" />
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/tv_price"

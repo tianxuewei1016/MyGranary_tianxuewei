@@ -1,5 +1,6 @@
 package com.mygranary_tianxuewei.fragment;
 
+import com.mygranary_tianxuewei.R;
 import com.mygranary_tianxuewei.base.BaseFragment;
 
 /**
@@ -11,7 +12,7 @@ import com.mygranary_tianxuewei.base.BaseFragment;
 public class HomepageFragment extends BaseFragment{
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.fragment_home;
     }
 
     @Override

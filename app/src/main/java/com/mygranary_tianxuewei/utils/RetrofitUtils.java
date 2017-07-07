@@ -21,6 +21,11 @@ public class RetrofitUtils {
 
         return createApi(UserService.class, ApiConstants.BASE_URL_BRAND);
     }
+    //专题
+    public static UserService getSpecialFragmentAPI() {
+
+        return createApi(UserService.class, ApiConstants.SPECIAL_URL);
+    }
 
 
     /**

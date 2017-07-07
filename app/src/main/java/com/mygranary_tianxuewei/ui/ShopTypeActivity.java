@@ -110,15 +110,15 @@ public class ShopTypeActivity extends BaseActivity {
         rv.setLayoutManager(manager);
         //设置间距
         rv.addItemDecoration(new ComprehensiveItemDecoration(15));
-      adapter.setOnItemClickListener(new TypeFragmentAdapter.OnItemClickListener() {
-          @Override
-          public void OnItemClick(int position) {
-              Intent intent = new Intent(ShopTypeActivity.this, DetailsActivity.class);
-              intent.putExtra(ConstantUtil.POSITION_TYPE, position);
-              startActivity(intent);
-          }
-      });
-
+        adapter.setOnItemClickListener(new TypeFragmentAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(int position) {
+                Intent intent = new Intent(ShopTypeActivity.this, DetailsActivity.class);
+                intent.putExtra(ConstantUtil.POSITION_TYPE, position);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            }
+        });
     }
 
     @Override
