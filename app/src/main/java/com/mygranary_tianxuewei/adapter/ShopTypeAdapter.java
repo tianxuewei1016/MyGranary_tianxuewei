@@ -63,7 +63,7 @@ public class ShopTypeAdapter extends RecyclerView.Adapter<ShopTypeAdapter.MyView
         @Bind(R.id.tv_price)
         TextView tvPrice;
 
-        public MyViewHolder(View itemView) {
+        public MyViewHolder(final View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +78,6 @@ public class ShopTypeAdapter extends RecyclerView.Adapter<ShopTypeAdapter.MyView
     }
 
     public interface OnItemClickListener {
-
         void OnItemClick(int position);
     }
 

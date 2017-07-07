@@ -110,14 +110,15 @@ public class ShopTypeActivity extends BaseActivity {
         rv.setLayoutManager(manager);
         //设置间距
         rv.addItemDecoration(new ComprehensiveItemDecoration(15));
-        adapter.setOnItemClickListener(new TypeFragmentAdapter.OnItemClickListener() {
-            @Override
-            public void OnItemClick(int position) {
-                //跳转到商品详情页面
-                Intent intent = new Intent(ShopTypeActivity.this, DetailsActivity.class);
-                startActivity(intent);
-            }
-        });
+      adapter.setOnItemClickListener(new TypeFragmentAdapter.OnItemClickListener() {
+          @Override
+          public void OnItemClick(int position) {
+              Intent intent = new Intent(ShopTypeActivity.this, DetailsActivity.class);
+              intent.putExtra(ConstantUtil.POSITION_TYPE, position);
+              startActivity(intent);
+          }
+      });
+
     }
 
     @Override
@@ -142,6 +143,5 @@ public class ShopTypeActivity extends BaseActivity {
                 showToast("分类里面的购物车被点击了");
             }
         });
-
     }
 }

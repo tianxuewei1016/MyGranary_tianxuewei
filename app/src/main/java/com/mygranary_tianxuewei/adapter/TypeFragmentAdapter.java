@@ -51,7 +51,7 @@ public class TypeFragmentAdapter extends RecyclerView.Adapter<TypeFragmentAdapte
         @Bind(R.id.iv_type)
         ImageView ivType;
 
-        public MyViewHolder(View itemView) {
+        public MyViewHolder(final View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             //设置item的点击事件
@@ -67,6 +67,7 @@ public class TypeFragmentAdapter extends RecyclerView.Adapter<TypeFragmentAdapte
     }
 
     public interface OnItemClickListener {
+
 
         void OnItemClick(int position);
     }
