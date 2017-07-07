@@ -1,5 +1,6 @@
 package com.mygranary_tianxuewei.ui;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -112,7 +113,9 @@ public class ShopTypeActivity extends BaseActivity {
         adapter.setOnItemClickListener(new TypeFragmentAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(int position) {
-                showToast("被点击了");
+                //跳转到商品详情页面
+                Intent intent = new Intent(ShopTypeActivity.this, DetailsActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -132,5 +135,13 @@ public class ShopTypeActivity extends BaseActivity {
                 showToast("价格筛选");
             }
         });
+        //购物车
+        ivTypeCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast("分类里面的购物车被点击了");
+            }
+        });
+
     }
 }
