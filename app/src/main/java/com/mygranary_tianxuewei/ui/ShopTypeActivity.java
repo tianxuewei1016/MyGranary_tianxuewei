@@ -1,28 +1,45 @@
 package com.mygranary_tianxuewei.ui;
 
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.mygranary_tianxuewei.R;
+import com.mygranary_tianxuewei.adapter.ShopTypeAdapter;
+import com.mygranary_tianxuewei.adapter.TypeFragmentAdapter;
 import com.mygranary_tianxuewei.base.BaseActivity;
+import com.mygranary_tianxuewei.bean.TypeActivityBean;
 import com.mygranary_tianxuewei.utils.ApiConstants;
+import com.mygranary_tianxuewei.utils.ConstantUtil;
+import com.mygranary_tianxuewei.widget.ComprehensiveItemDecoration;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import butterknife.Bind;
-
-import static com.mygranary_tianxuewei.R.id.iv_seek;
+import okhttp3.Call;
 
 /**
  * 分类点击事件的Activity
  */
 public class ShopTypeActivity extends BaseActivity {
 
-    @Bind(iv_seek)
-    ImageView ivSeek;
-    @Bind(R.id.tv_shop_writ)
-    TextView tvShopWrit;
-    @Bind(R.id.iv_shop_cart)
-    ImageView ivShopCart;
+    @Bind(R.id.iv_ac_type)
+    ImageView ivAcType;
+    @Bind(R.id.tv_type_writ)
+    TextView tvTypeWrit;
+    @Bind(R.id.iv_type_cart)
+    ImageView ivTypeCart;
+    @Bind(R.id.tv_shop_type)
+    TextView tvShopType;
+    @Bind(R.id.rv)
+    RecyclerView rv;
+    @Bind(R.id.activity_shop_type)
+    RelativeLayout activityShopType;
+    private ShopTypeAdapter adapter;
 
     private String[] urls = new String[]{
             ApiConstants.HOME_URL,
@@ -53,21 +70,66 @@ public class ShopTypeActivity extends BaseActivity {
 
     @Override
     protected void initTitle() {
-        tvShopWrit.setText("商店");
-        ivSeek.setImageResource(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        tvTypeWrit.setText("商店");
     }
 
     @Override
     protected void initData() {
+        int position = getIntent().getIntExtra(ConstantUtil.POSITION_TYPE, getLayoutId());
+        getDataFromNet(urls[position]);
+    }
 
+    private void getDataFromNet(String url) {
+        OkHttpUtils.get()
+                .url(url)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        processData(response);
+                    }
+                });
+    }
+
+    /**
+     * 解析数据
+     *
+     * @param json
+     */
+    private void processData(String json) {
+        TypeActivityBean bean = new Gson().fromJson(json, TypeActivityBean.class);
+        adapter = new ShopTypeAdapter(this, bean.getData());
+        rv.setAdapter(adapter);
+        //设置布局管理器
+        GridLayoutManager manager = new GridLayoutManager(this, 2);
+        rv.setLayoutManager(manager);
+        //设置间距
+        rv.addItemDecoration(new ComprehensiveItemDecoration(15));
+        adapter.setOnItemClickListener(new TypeFragmentAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(int position) {
+                showToast("被点击了");
+            }
+        });
     }
 
     @Override
     protected void initListener() {
-        ivSeek.setOnClickListener(new View.OnClickListener() {
+        ivAcType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        //筛选的点击事件
+        tvShopType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast("价格筛选");
             }
         });
     }

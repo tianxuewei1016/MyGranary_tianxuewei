@@ -7,4 +7,5 @@ package com.mygranary_tianxuewei.utils;
  */
 
 public class ConstantUtil {
+    public static final String POSITION_TYPE = "position";
 }

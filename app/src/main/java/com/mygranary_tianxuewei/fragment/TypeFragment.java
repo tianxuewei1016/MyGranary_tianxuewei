@@ -11,6 +11,7 @@ import com.mygranary_tianxuewei.base.BaseFragment;
 import com.mygranary_tianxuewei.bean.TypeFragmentBean;
 import com.mygranary_tianxuewei.ui.MainActivity;
 import com.mygranary_tianxuewei.ui.ShopTypeActivity;
+import com.mygranary_tianxuewei.utils.ConstantUtil;
 import com.mygranary_tianxuewei.utils.RetrofitUtils;
 import com.mygranary_tianxuewei.widget.ComprehensiveItemDecoration;
 
@@ -116,8 +117,10 @@ public class TypeFragment extends BaseFragment {
         });
         adapter.setOnItemClickListener(new TypeFragmentAdapter.OnItemClickListener() {
             @Override
-            public void OnItemClick(TypeFragmentBean.DataBean.ItemsBean itemsBean) {
-                startActivity(new Intent(context, ShopTypeActivity.class));
+            public void OnItemClick(int position) {
+                Intent intent = new Intent(context, ShopTypeActivity.class);
+                intent.putExtra(ConstantUtil.POSITION_TYPE, position);
+                startActivity(intent);
                 MainActivity mainActivity = (MainActivity) context;
                 mainActivity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }

@@ -5,56 +5,67 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.mygranary_tianxuewei.R;
-import com.mygranary_tianxuewei.bean.TypeFragmentBean;
+import com.mygranary_tianxuewei.bean.TypeActivityBean;
+import com.mygranary_tianxuewei.utils.UiUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * 作者：田学伟 on 2017/7/6 09:34
+ * 作者：田学伟 on 2017/7/6 17:20
  * QQ：93226539
- * 作用：分类的适配器
+ * 作用：分类点击事件的适配器
  */
 
-public class TypeFragmentAdapter extends RecyclerView.Adapter<TypeFragmentAdapter.MyViewHolder> {
+public class ShopTypeAdapter extends RecyclerView.Adapter<ShopTypeAdapter.MyViewHolder> {
 
     private final Context context;
-    private final TypeFragmentBean datas;
+    private final TypeActivityBean.DataBean datas;
 
-    public TypeFragmentAdapter(Context context, TypeFragmentBean typeFragmentBean) {
+
+    public ShopTypeAdapter(Context context, TypeActivityBean.DataBean data) {
         this.context = context;
-        this.datas = typeFragmentBean;
+        this.datas = data;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MyViewHolder(View.inflate(context, R.layout.fragment_type_item, null));
+        return new MyViewHolder(UiUtils.inflate(R.layout.shop_type_item));
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        TypeFragmentBean.DataBean.ItemsBean itemsBean = datas.getData().getItems().get(position);
+        TypeActivityBean.DataBean.ItemsBean itemsBean = datas.getItems().get(position);
         Glide.with(context)
-                .load(itemsBean.getNew_cover_img())
-                .into(holder.ivType);
+                .load(itemsBean.getGoods_image())
+                .into(holder.ivHot);
+        holder.tvShopName.setText(itemsBean.getGoods_name());
+        holder.tvBrandJex.setText(itemsBean.getBrand_info().getBrand_name());
+        holder.tvPrice.setText("￥" + itemsBean.getPrice());
     }
 
     @Override
     public int getItemCount() {
-        return datas == null ? 0 : datas.getData().getItems().size();
+        return datas.getItems().size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.iv_type)
-        ImageView ivType;
+        @Bind(R.id.iv_hot)
+        ImageView ivHot;
+        @Bind(R.id.tv_shop_name)
+        TextView tvShopName;
+        @Bind(R.id.tv_brand_jex)
+        TextView tvBrandJex;
+        @Bind(R.id.tv_price)
+        TextView tvPrice;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            //设置item的点击事件
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -71,9 +82,9 @@ public class TypeFragmentAdapter extends RecyclerView.Adapter<TypeFragmentAdapte
         void OnItemClick(int position);
     }
 
-    private OnItemClickListener listener;
+    private TypeFragmentAdapter.OnItemClickListener listener;
 
-    public void setOnItemClickListener(OnItemClickListener l) {
+    public void setOnItemClickListener(TypeFragmentAdapter.OnItemClickListener l) {
         this.listener = l;
     }
 }

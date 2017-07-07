@@ -11,5 +11,6 @@
     <color name="color_huise">#4C4F54</color>
     <color name="color_tou">#1C1C1C</color>
     <color name="color_brand">#2C3033</color>
-
+    <color name="color_heise">#000000</color>
+    <color name="color_qianlan">#6B91B9</color>
 </resources>
