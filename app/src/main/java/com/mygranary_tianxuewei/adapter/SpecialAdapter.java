@@ -11,8 +11,12 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.mygranary_tianxuewei.R;
 import com.mygranary_tianxuewei.bean.SpecialBean;
+import com.mygranary_tianxuewei.ui.MainActivity;
 import com.mygranary_tianxuewei.ui.SpecialActivity;
+import com.mygranary_tianxuewei.utils.ConstantUtil;
 import com.mygranary_tianxuewei.utils.UiUtils;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -60,9 +64,16 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyViewHo
             super(itemView);
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(new View.OnClickListener() {
+                public List<SpecialBean.DataBean.ItemsBean> ItemsBean = datas.getItems();
+
                 @Override
                 public void onClick(View v) {
-                    context.startActivity(new Intent(context, SpecialActivity.class));
+                    SpecialBean.DataBean.ItemsBean itemsBean = this.ItemsBean.get(getLayoutPosition());
+                    Intent initent = new Intent(context, SpecialActivity.class);
+                    initent.putExtra(ConstantUtil.SPECIAL_BEAN, itemsBean);
+                    context.startActivity(initent);
+                    MainActivity mainActivity = (MainActivity) context;
+                    mainActivity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 }
             });
         }

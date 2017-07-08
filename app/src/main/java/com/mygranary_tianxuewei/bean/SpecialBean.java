@@ -1,5 +1,6 @@
 package com.mygranary_tianxuewei.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
  * 作用:专题
  */
 
-public class SpecialBean {
+public class SpecialBean implements Serializable{
 
     /**
      * meta : {"status":0,"server_time":"2017-07-07 19:28:06","account_id":0,"cost":0.037670850753784,"errdata":null,"errmsg":""}
@@ -110,7 +111,7 @@ public class SpecialBean {
         }
     }
 
-    public static class DataBean {
+    public static class DataBean implements Serializable{
         /**
          * has_more : true
          * num_items : 142
@@ -145,7 +146,7 @@ public class SpecialBean {
             this.items = items;
         }
 
-        public static class ItemsBean {
+        public static class ItemsBean implements Serializable{
             /**
              * taid : 1926
              * topic_name : 想象力比知识重要，爱因斯坦童年最爱玩的积木

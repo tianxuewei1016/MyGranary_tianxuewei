@@ -82,7 +82,7 @@ public class SpecialFragment extends BaseFragment {
                 });
     }
 
-    private void setUpAdapter(SpecialBean specialBean) {
+    private void setUpAdapter(final SpecialBean specialBean) {
         if (specialBean.getData().getItems() != null && specialBean.getData().getItems().size() > 0) {
             adapter = new SpecialAdapter(context, specialBean.getData());
             lvSpecial.setAdapter(adapter);
