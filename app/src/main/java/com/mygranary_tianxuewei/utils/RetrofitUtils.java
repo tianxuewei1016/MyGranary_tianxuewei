@@ -21,6 +21,12 @@ public class RetrofitUtils {
 
         return createApi(UserService.class, ApiConstants.BASE_URL_BRAND);
     }
+    //首页
+    public static UserService getHomepagerFragmentAPI() {
+
+        return createApi(UserService.class, ApiConstants.HOMEPAGER_URL);
+    }
+
     //专题
     public static UserService getSpecialFragmentAPI() {
 

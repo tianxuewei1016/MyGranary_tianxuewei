@@ -32,7 +32,8 @@
         <activity
             android:name=".ui.DetailsActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.SpecialActivity"></activity>
+        <activity android:name=".ui.SpecialActivity" />
+        <activity android:name=".ui.HomepageActivity"></activity>
     </application>
 
 </manifest>

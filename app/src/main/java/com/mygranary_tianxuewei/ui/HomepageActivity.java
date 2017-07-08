@@ -10,30 +10,29 @@ import android.widget.TextView;
 
 import com.mygranary_tianxuewei.R;
 import com.mygranary_tianxuewei.base.BaseActivity;
-import com.mygranary_tianxuewei.bean.SpecialBean;
-import com.mygranary_tianxuewei.utils.ConstantUtil;
+import com.mygranary_tianxuewei.bean.HomepagerBean;
 
 import butterknife.Bind;
 
 /**
- * 专题点击事件的Activity
+ * 首页点击事件的Activity
  */
-public class SpecialActivity extends BaseActivity {
+public class HomepageActivity extends BaseActivity {
 
-    @Bind(R.id.webview)
-    WebView webview;
-    @Bind(R.id.iv_web_type)
-    ImageView ivWebType;
     @Bind(R.id.tv_web_writ)
     TextView tvWebWrit;
+    @Bind(R.id.iv_web_type)
+    ImageView ivWebType;
+    @Bind(R.id.webview)
+    WebView webview;
     @Bind(R.id.progressbar)
     ProgressBar progressbar;
     private WebSettings settings;
-    private SpecialBean.DataBean.ItemsBean special_bean;
+    private HomepagerBean.DataBean.ItemsBean.ListBean home_pager;
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_special;
+        return R.layout.activity_homepage;
     }
 
     @Override
@@ -43,7 +42,8 @@ public class SpecialActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        special_bean = (SpecialBean.DataBean.ItemsBean) getIntent().getSerializableExtra(ConstantUtil.SPECIAL_BEAN);
+        home_pager = (HomepagerBean.DataBean.ItemsBean.ListBean) getIntent().getSerializableExtra("home_pager");
+
         settings = webview.getSettings();
         //设置相关配置
         //设置支持javaScript
@@ -56,9 +56,9 @@ public class SpecialActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
-        //加载网页地址
-        webview.loadUrl(special_bean.getTopic_url());
-        tvWebWrit.setText(special_bean.getTopic_name());
+        webview.loadUrl(home_pager.getOne().getTopic_url());
+        tvWebWrit.setText(home_pager.getOne().getTopic_name());
+
         //设置加载页面完成的监听
         webview.setWebViewClient(new WebViewClient() {
             @Override
@@ -71,6 +71,7 @@ public class SpecialActivity extends BaseActivity {
                 }
             }
         });
+
         ivWebType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
