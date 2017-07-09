@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_brand"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mygranary_tianxuewei.ui.BrandActivity">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/relat"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/background_color"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_relat_writ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="品牌产品"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/iv_relat_type"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+            android:tint="@android:color/white" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/relat"
+        android:background="@drawable/brand_bg">
+
+        <com.mygranary_tianxuewei.utils.CircleImageView
+            android:id="@+id/iv_user_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/my_user_default" />
+
+        <TextView
+            android:id="@+id/tv_user_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_user_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="更改头像"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rv"
+        android:background="#1E2125"
+        android:orientation="vertical">
+
+        <com.flyco.tablayout.SegmentTabLayout
+            android:id="@+id/tl_1"
+            tl_divider_color="#1E2125"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            tl:tl_bar_color="@color/color_huise"
+            tl:tl_indicator_color="@color/white"
+            tl:tl_textSelectColor="#1E2125" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_type"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_1"
+        android:background="#1E2125" />
+
+
+</RelativeLayout>

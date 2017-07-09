@@ -1,5 +1,6 @@
 package com.mygranary_tianxuewei.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
  * 作用：品牌
  */
 
-public class BrandFragmentBean {
+public class BrandFragmentBean implements Serializable{
 
     /**
      * meta : {"status":0,"server_time":"2017-07-06 11:22:54","account_id":0,"cost":0.0047180652618408,"errdata":null,"errmsg":""}
@@ -44,7 +45,7 @@ public class BrandFragmentBean {
         this.data = data;
     }
 
-    public static class MetaBean {
+    public static class MetaBean implements Serializable{
         /**
          * status : 0
          * server_time : 2017-07-06 11:22:54
@@ -110,7 +111,7 @@ public class BrandFragmentBean {
         }
     }
 
-    public static class DataBean {
+    public static class DataBean implements Serializable{
         /**
          * has_more : true
          * num_items : 736
@@ -145,7 +146,7 @@ public class BrandFragmentBean {
             this.items = items;
         }
 
-        public static class ItemsBean {
+        public static class ItemsBean implements Serializable{
             /**
              * brand_id : 841
              * brand_name : HAZE Collection

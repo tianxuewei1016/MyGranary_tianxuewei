@@ -14,6 +14,7 @@ import com.mygranary_tianxuewei.R;
 import com.mygranary_tianxuewei.bean.HomepagerBean;
 import com.mygranary_tianxuewei.ui.HomepageActivity;
 import com.mygranary_tianxuewei.ui.MainActivity;
+import com.mygranary_tianxuewei.utils.ConstantUtil;
 
 import java.util.List;
 
@@ -128,9 +129,19 @@ public class HomepagerAdapter extends RecyclerView.Adapter {
         public MyViewHodler(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            /**
+             * 跳转到新的页面练习数据的传递
+             */
             ivHpageIcon.setOnClickListener(new View.OnClickListener() {
+                List<HomepagerBean.DataBean.ItemsBean.ListBean> ItemsBean = datas;
                 @Override
                 public void onClick(View v) {
+//                    HomepagerBean.DataBean.ItemsBean.ListBean itemsBean = this.ItemsBean.get(getLayoutPosition());
+//                    Intent intent = new Intent(context, PagerActivity.class);
+//                    intent.putExtra(ConstantUtil.HOME_PAGER, itemsBean);
+//                    context.startActivity(intent);
+//                    MainActivity mainActivity = (MainActivity) context;
+//                    mainActivity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
                     Toast.makeText(context, "被点击了....", Toast.LENGTH_SHORT).show();
                 }
             });
@@ -146,10 +157,32 @@ public class HomepagerAdapter extends RecyclerView.Adapter {
         public MyViewHodler1(View view) {
             super(view);
             ButterKnife.bind(this, view);
-            view.setOnClickListener(new View.OnClickListener() {
+            gvItemHpage1.setOnClickListener(new View.OnClickListener() {
+                List<HomepagerBean.DataBean.ItemsBean.ListBean> ItemsBean = datas;
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "1111111被点击了.......", Toast.LENGTH_SHORT).show();
+                    HomepagerBean.DataBean.ItemsBean.ListBean itemsBean = this.ItemsBean.get(getLayoutPosition());
+                    Intent intent = new Intent(context, HomepageActivity.class);
+                    intent.putExtra(ConstantUtil.HOME_PAGER, itemsBean);
+                    context.startActivity(intent);
+                    MainActivity mainActivity = (MainActivity) context;
+                    mainActivity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                }
+            });
+            /**
+             * 这个里面数据不对,还得调参数
+             */
+            gvItemHpage2.setOnClickListener(new View.OnClickListener() {
+                List<HomepagerBean.DataBean.ItemsBean.ListBean> ItemsBean = datas;
+
+                @Override
+                public void onClick(View v) {
+                    HomepagerBean.DataBean.ItemsBean.ListBean itemsBean = this.ItemsBean.get(getLayoutPosition());
+                    Intent intent = new Intent(context, HomepageActivity.class);
+                    intent.putExtra(ConstantUtil.HOME_PAGER, itemsBean);
+                    context.startActivity(intent);
+                    MainActivity mainActivity = (MainActivity) context;
+                    mainActivity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 }
             });
         }
@@ -163,6 +196,7 @@ public class HomepagerAdapter extends RecyclerView.Adapter {
 
         /**
          * 这里布局写错了应该设置四张图片分别设置点击事件
+         *
          * @param view
          */
         public MyViewHolder2(View view) {
@@ -175,7 +209,7 @@ public class HomepagerAdapter extends RecyclerView.Adapter {
                 public void onClick(View v) {
                     HomepagerBean.DataBean.ItemsBean.ListBean itemsBean = this.ItemsBean.get(getLayoutPosition());
                     Intent intent = new Intent(context, HomepageActivity.class);
-                    intent.putExtra("home_pager", itemsBean);
+                    intent.putExtra(ConstantUtil.HOME_PAGER, itemsBean);
                     context.startActivity(intent);
                     MainActivity mainActivity = (MainActivity) context;
                     mainActivity.overridePendingTransition(R.anim.right_in, R.anim.left_out);

@@ -1,13 +1,15 @@
 package com.mygranary_tianxuewei.fragment;
 
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.widget.ListView;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.mygranary_tianxuewei.R;
 import com.mygranary_tianxuewei.adapter.BrandFragmentAdapter;
 import com.mygranary_tianxuewei.base.BaseFragment;
 import com.mygranary_tianxuewei.bean.BrandFragmentBean;
 import com.mygranary_tianxuewei.utils.RetrofitUtils;
+import com.mygranary_tianxuewei.widget.ComprehensiveItemDecoration;
 import com.orhanobut.logger.Logger;
 
 import butterknife.Bind;
@@ -16,6 +18,8 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
+import static com.mygranary_tianxuewei.R.id.lv_brand;
+
 /**
  * 作者：田学伟 on 2017/7/5 23:14
  * QQ：93226539
@@ -23,8 +27,8 @@ import rx.schedulers.Schedulers;
  */
 
 public class BrandFragment extends BaseFragment {
-    @Bind(R.id.lv_brand)
-    ListView lvBrand;
+    @Bind(lv_brand)
+    RecyclerView lvBrand;
     @Bind(R.id.brand_refresh_layout)
     SwipeRefreshLayout brandRefreshLayout;
     private BrandFragmentAdapter adapter;
@@ -87,6 +91,11 @@ public class BrandFragment extends BaseFragment {
             BrandFragmentBean.DataBean data = brandFragmentBean.getData();
             adapter = new BrandFragmentAdapter(context, data);
             lvBrand.setAdapter(adapter);
+            //设置布局管理器
+            GridLayoutManager manager = new GridLayoutManager(context, 1);
+            lvBrand.setLayoutManager(manager);
+            //设置间距
+            lvBrand.addItemDecoration(new ComprehensiveItemDecoration(18));
         }
     }
 }

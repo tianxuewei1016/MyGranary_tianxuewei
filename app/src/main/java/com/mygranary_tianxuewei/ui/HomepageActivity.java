@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.mygranary_tianxuewei.R;
 import com.mygranary_tianxuewei.base.BaseActivity;
 import com.mygranary_tianxuewei.bean.HomepagerBean;
+import com.mygranary_tianxuewei.utils.ConstantUtil;
 
 import butterknife.Bind;
 
@@ -42,7 +43,7 @@ public class HomepageActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        home_pager = (HomepagerBean.DataBean.ItemsBean.ListBean) getIntent().getSerializableExtra("home_pager");
+        home_pager = (HomepagerBean.DataBean.ItemsBean.ListBean) getIntent().getSerializableExtra(ConstantUtil.HOME_PAGER);
 
         settings = webview.getSettings();
         //设置相关配置

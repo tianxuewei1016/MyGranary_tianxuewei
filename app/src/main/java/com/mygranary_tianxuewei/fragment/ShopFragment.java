@@ -33,7 +33,7 @@ public class ShopFragment extends BaseFragment {
     ViewPager mainTabViewpager;
 
     private ArrayList<BaseFragment> fragments;
-    private String[] titles = {"分类", "品牌", "首页", "专题", "礼物","直播"};
+    private String[] titles = {"分类", "品牌", "首页", "专题", "礼物","排序"};
     private ShopViewpagerAdapter adapter;
 
     @Override
