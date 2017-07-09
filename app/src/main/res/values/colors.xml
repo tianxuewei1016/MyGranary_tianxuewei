@@ -13,4 +13,6 @@
     <color name="color_brand">#2C3033</color>
     <color name="color_heise">#000000</color>
     <color name="color_qianlan">#6B91B9</color>
+    <color name="colorGirdView">#1E2125</color>
+    <color name="colorBlank">#15171a</color>
 </resources>

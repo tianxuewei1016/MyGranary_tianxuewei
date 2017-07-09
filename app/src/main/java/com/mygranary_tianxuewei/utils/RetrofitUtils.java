@@ -16,11 +16,13 @@ public class RetrofitUtils {
 
         return createApi(UserService.class, ApiConstants.BASE_URL);
     }
+
     //品牌
     public static UserService getBrandFragmentAPI() {
 
         return createApi(UserService.class, ApiConstants.BASE_URL_BRAND);
     }
+
     //首页
     public static UserService getHomepagerFragmentAPI() {
 
@@ -31,6 +33,12 @@ public class RetrofitUtils {
     public static UserService getSpecialFragmentAPI() {
 
         return createApi(UserService.class, ApiConstants.SPECIAL_URL);
+    }
+
+    //达人首页
+    public static UserService getEredarFragmentAPI() {
+
+        return createApi(UserService.class, ApiConstants.EREDAR_URL);
     }
 
 

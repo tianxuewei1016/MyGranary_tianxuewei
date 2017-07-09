@@ -1,6 +1,7 @@
 package com.mygranary_tianxuewei.utils;
 
 import com.mygranary_tianxuewei.bean.BrandFragmentBean;
+import com.mygranary_tianxuewei.bean.EredarFragmentBean;
 import com.mygranary_tianxuewei.bean.HomepagerBean;
 import com.mygranary_tianxuewei.bean.SpecialBean;
 import com.mygranary_tianxuewei.bean.TypeFragmentBean;
@@ -9,6 +10,7 @@ import retrofit2.http.GET;
 import rx.Observable;
 
 import static com.mygranary_tianxuewei.utils.ApiConstants.BRAND_FRAGMEN;
+import static com.mygranary_tianxuewei.utils.ApiConstants.EREDAR_FRAGMENT;
 import static com.mygranary_tianxuewei.utils.ApiConstants.HOMEPAGER_FRAGMENT;
 import static com.mygranary_tianxuewei.utils.ApiConstants.SPECIAL_FRAGMENT;
 import static com.mygranary_tianxuewei.utils.ApiConstants.TYPE_FRAGMENT;
@@ -31,4 +33,7 @@ public interface UserService {
 
     @GET(HOMEPAGER_FRAGMENT)
     Observable<HomepagerBean> getHomepagerFragmentInfo();
+
+    @GET(EREDAR_FRAGMENT)
+    Observable<EredarFragmentBean> getEredarFragmentInfo();
 }
