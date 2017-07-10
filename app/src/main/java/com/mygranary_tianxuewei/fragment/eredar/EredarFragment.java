@@ -1,4 +1,4 @@
-package com.mygranary_tianxuewei.fragment;
+package com.mygranary_tianxuewei.fragment.eredar;
 
 import android.content.Intent;
 import android.os.Bundle;

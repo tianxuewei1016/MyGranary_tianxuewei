@@ -6,4 +6,161 @@
     android:layout_height="match_parent"
     tools:context="com.mygranary_tianxuewei.ui.UserInfoActivity">
 
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/user_re"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/background_color"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_user_writ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/iv_user_type"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+            android:tint="@android:color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/user_content_relative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/user_re"
+        android:background="@color/colorGirdView"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <com.mygranary_tianxuewei.utils.CircleImageView
+            android:id="@+id/user_head_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/user_head_img"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/user_head_img"
+            android:textColor="@color/colorText"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/user_job"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/user_head_img"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/user_msg"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/user_head_img"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:background="#464749"
+            android:gravity="center"
+            android:onClick="click"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="私信"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/user_forcus"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/user_head_img"
+            android:layout_toLeftOf="@id/user_msg"
+            android:background="#575B51"
+            android:gravity="center"
+            android:onClick="click"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="关注"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <RadioGroup
+            android:id="@+id/user_radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_head_img"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/user_radio_bt_like"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/user_bt"
+                android:button="@null"
+                android:gravity="center"
+                android:textColor="@color/shape_brand_txt"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/user_radio_bt_recommend"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/user_bt"
+                android:button="@null"
+                android:gravity="center"
+                android:textColor="@color/shape_brand_txt"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/user_radio_bt_focus"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/user_bt"
+                android:button="@null"
+                android:gravity="center"
+                android:textColor="@color/shape_brand_txt"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/user_radio_bt_fans"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/user_bt"
+                android:button="@null"
+                android:gravity="center"
+                android:textColor="@color/shape_brand_txt"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+        <FrameLayout
+            android:id="@+id/user_fram"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/user_radio_group" />
+    </RelativeLayout>
+
 </RelativeLayout>

@@ -101,12 +101,22 @@ public class ApiConstants {
     }
 
     //搜索
-    public static String getTalentSearchUrl(String keyWord,int page) {
+    public static String getTalentSearchUrl(String keyWord, int page) {
         return "http://mobile.iliangcang.com/user/search?app_key=Android&count=18&keyword=" +
                 keyWord +
                 "&page=" +
                 page +
                 "&sig=6D569443F5A6EB51036D09737946AC2A%7C002841520425331&v=1.0";
     }
+
+    /**
+     * 用户信息
+     */
+    //喜欢
+    public static String getUserLike(String id, int page) {
+        return "http://mobile.iliangcang.com" +
+                "/user/masterLike?app_key=Android&count=10&owner_id=" + id + "&page=" + page + "&sig=CD0E234053E25DD6111E3DBD450A4B85%7C954252010968868&v=1.0";
+    }
+
 
 }
