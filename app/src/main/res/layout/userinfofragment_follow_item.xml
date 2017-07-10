@@ -4,4 +4,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <com.mygranary_tianxuewei.utils.CircleImageView
+        android:id="@+id/use_fragment_item_follow_img"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/use_fragment_item_follow_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorGary1"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/use_fragment_item_follow_job"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorGary1"
+        android:textSize="13sp" />
 </LinearLayout>

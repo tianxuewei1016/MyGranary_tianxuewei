@@ -14,5 +14,9 @@
     <color name="color_heise">#000000</color>
     <color name="color_qianlan">#6B91B9</color>
     <color name="colorGirdView">#1E2125</color>
+    <color name="colorGary1">#dae0e6</color>
     <color name="colorBlank">#15171a</color>
+    <color name="colorTalent">#444950</color>
+    <color name="colorText">#6E7479</color>
+    <color name="colorTalentMenu">#313335</color>
 </resources>
