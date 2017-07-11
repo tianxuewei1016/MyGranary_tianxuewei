@@ -16,7 +16,7 @@ import com.mygranary_tianxuewei.base.BaseFragment;
 import com.mygranary_tianxuewei.common.AppManager;
 import com.mygranary_tianxuewei.fragment.eredar.EredarFragment;
 import com.mygranary_tianxuewei.fragment.MagazineFragment;
-import com.mygranary_tianxuewei.fragment.MineFragment;
+import com.mygranary_tianxuewei.travel.MineFragment;
 import com.mygranary_tianxuewei.fragment.ShareFragment;
 import com.mygranary_tianxuewei.fragment.ShopFragment;
 

@@ -1,14 +1,14 @@
-package com.mygranary_tianxuewei.fragment;
+package com.mygranary_tianxuewei.travel.fragment;
 
 import com.mygranary_tianxuewei.base.BaseFragment;
 
 /**
- * 作者：田学伟 on 2017/7/5 19:21
+ * 作者：田学伟 on 2017/7/11 11:00
  * QQ：93226539
- * 作用：个人中心
+ * 作用：
  */
 
-public class MineFragment extends BaseFragment{
+public class ExpertFragment extends BaseFragment{
     @Override
     protected int getLayoutId() {
         return 0;
