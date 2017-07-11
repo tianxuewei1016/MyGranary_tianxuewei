@@ -1,6 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent">
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/id_appbarlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_tool_bar_test_ctl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/lv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/y25"
+                        android:text="@string/xy_tourism"
+                        android:textColor="@color/text_black"
+                        android:textSize="19sp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/y1"
+                        android:layout_marginTop="@dimen/y25"
+                        android:background="@color/text_color_c5" />
+                </LinearLayout>
+            </android.support.design.widget.CollapsingToolbarLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="127px"
+                android:orientation="horizontal">
+                //全部
+
+                <LinearLayout
+                    android:id="@+id/ll_sort_all"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/all"
+                        android:textSize="19sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_all_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/x5"
+                        android:src="@mipmap/small_arrow_down" />
+                </LinearLayout>
+                //主题
+
+                <LinearLayout
+                    android:id="@+id/ll_sort_zhuanti"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_zhuanti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/zhuti"
+                        android:textSize="19sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_zhuanti_arrrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/x5"
+                        android:src="@mipmap/small_arrow_down" />
+                </LinearLayout>
+                //推荐
+
+                <LinearLayout
+                    android:id="@+id/ll_sort_recommend"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_recommend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxEms="5"
+                        android:singleLine="true"
+                        android:text="@string/tuijian"
+                        android:textColor="@color/text_bottombar"
+                        android:textSize="19sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_recommend_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/x5"
+                        android:src="@drawable/down_red_arrow" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view_down"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y1"
+                android:background="@color/text_color_c5" />
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nest_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="always"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rcl_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/x20" />
+
+                <TextView
+                    android:id="@+id/lv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/y25"
+                    android:gravity="center"
+                    android:lineSpacingMultiplier="2"
+                    android:paddingBottom="@dimen/y20"
+                    android:text="@string/nootherresult"
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>

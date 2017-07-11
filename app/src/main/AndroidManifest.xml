@@ -41,7 +41,10 @@
         <activity
             android:name=".ui.BrandActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.UserInfoActivity"></activity>
+        <activity android:name=".ui.UserInfoActivity" />
+        <activity android:name=".travel.ui.ProductDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ImageTranslucentTheme"></activity>
     </application>
 
 </manifest>

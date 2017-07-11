@@ -6,4 +6,31 @@
     <string name="customer_service">分享</string>
     <string name="mine">个人中心</string>
     <string name="eredar">达人</string>
+    <string name="xy_tourism">新绎旅游</string>
+    <string name="all">全部</string>
+    <string name="zhuti">主题</string>
+    <string name="tuijian">推荐排序</string>
+    <string name="nootherresult">没有更多结果了</string>
+    <string name="qi">起</string>
+    <string name="buxian">不限</string>
+    <string name="pro_info">产品信息</string>
+    <string name="early_to">最早出发</string>
+    <string name="last_to">最晚出发</string>
+    <string name="can_select_date">可订价格与日期</string>
+    <string name="need_pre_day">需出行前1天预定</string>
+    <string name="xy_serivce">新绎服务</string>
+    <string name="read_more">阅读更多></string>
+    <string name="pro_exp">产品特色</string>
+    <string name="go_intro">行程介绍</string>
+    <string name="fee_intro">费用说明</string>
+    <string name="fee_include">[费用包含]</string>
+    <string name="fee_no_include">[费用不含]</string>
+    <string name="pre_need_konw">预订须知</string>
+    <string name="notice2">此产品为二次确认产品，在预订成功后24小时内将进行二次确认，核实是否有位</string>
+    <string name="right_to_pre">立即预订</string>
+    <string name="pro_number">产品编号</string>
+
+
+
+
 </resources>

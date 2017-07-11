@@ -1,12 +1,13 @@
-package com.mygranary_tianxuewei.travel.fragment;
+package com.ovationtourism.fragment;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -16,94 +17,81 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-import com.mygranary_tianxuewei.R;
-import com.mygranary_tianxuewei.base.BaseFragment;
-import com.mygranary_tianxuewei.travel.adapter.ProductRclAdapter;
-import com.mygranary_tianxuewei.travel.adapter.SortAllAdapter;
-import com.mygranary_tianxuewei.travel.adapter.SortRecommendAdapter;
-import com.mygranary_tianxuewei.travel.adapter.SortThemeAdapter;
-import com.mygranary_tianxuewei.travel.bean.ProductListBean;
-import com.mygranary_tianxuewei.travel.bean.ProductType;
-import com.mygranary_tianxuewei.travel.bean.QueryProductListBean;
-import com.mygranary_tianxuewei.travel.bean.XyTypeDictionarysBean;
-import com.mygranary_tianxuewei.travel.ui.ProductDetailActivity;
-import com.mygranary_tianxuewei.travel.utils.ConstantNetUtil;
-import com.mygranary_tianxuewei.utils.LoadNet;
-import com.mygranary_tianxuewei.utils.LoadNetHttp;
-import com.mygranary_tianxuewei.utils.UiUtils;
+import com.ovationtourism.R;
+import com.ovationtourism.adapter.ProductRclAdapter;
+import com.ovationtourism.adapter.SortAllAdapter;
+import com.ovationtourism.adapter.SortRecommendAdapter;
+import com.ovationtourism.adapter.SortThemeAdapter;
+import com.ovationtourism.base.BaseFragment;
+import com.ovationtourism.base.ViewHelper;
+import com.ovationtourism.constant.ConstantNetUtil;
+import com.ovationtourism.domain.ProductListBean;
+import com.ovationtourism.domain.ProductType;
+import com.ovationtourism.domain.QueryProductListBean;
+import com.ovationtourism.domain.XyTypeDictionarysBean;
+import com.ovationtourism.ui.ProductDetailActivity;
+import com.ovationtourism.utils.LoadNet;
+import com.ovationtourism.utils.LoadNetHttp;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.OnClick;
-
-import static com.mygranary_tianxuewei.R.id.iv_all_arrow;
-import static com.mygranary_tianxuewei.R.id.iv_recommend_arrow;
-import static com.mygranary_tianxuewei.R.id.rcl_product;
-import static com.mygranary_tianxuewei.R.id.tv_all;
-import static com.mygranary_tianxuewei.R.id.tv_recommend;
-import static com.mygranary_tianxuewei.R.id.tv_zhuanti;
-import static com.mygranary_tianxuewei.R.id.view_down;
+import butterknife.BindView;
 
 /**
- * 作者：田学伟 on 2017/7/11 11:00
- * QQ：93226539
- * 作用：旅游
+ * @name OvationTourism
+ * @class name：com.ovationtourism.fragment
+ * @anthor hx
+ * @time 2017-05-09 11:44
+ * @change
+ * @class describe
  */
+public class TourismFragment extends BaseFragment implements View.OnClickListener {
+    @BindView(R.id.ll_sort_all)
+    LinearLayout ll_sort_all;//全部
+    @BindView(R.id.ll_sort_zhuanti)
+    LinearLayout ll_sort_zhuanti;//专题
+    @BindView(R.id.ll_sort_recommend)
+    LinearLayout ll_sort_recommend;//推荐
+    @BindView(R.id.tv_all)
+    TextView tv_all;//
+    @BindView(R.id.tv_zhuanti)
+    TextView tv_zhuanti;
+    @BindView(R.id.tv_recommend)
+    TextView tv_recommend;
+    @BindView(R.id.iv_all_arrow)
+    ImageView iv_all_arrow;//
+    @BindView(R.id.iv_zhuanti_arrrow)
+    ImageView iv_zhuanti_arrow;
+    @BindView(R.id.iv_recommend_arrow)
+    ImageView iv_recommend_arrow;
+    @BindView(R.id.view_down)
+    View view_down;
+    @BindView(R.id.nest_scroll_view)
+    NestedScrollView nest_scroll_view;
+    @BindView(R.id.rcl_product)
+    RecyclerView rcl_product;//产品rel
 
-public class TourFragment extends BaseFragment {
-    @Bind(R.id.lv)
-    TextView lv;
-    @Bind(R.id.collapsing_tool_bar_test_ctl)
-    CollapsingToolbarLayout collapsingToolBarTestCtl;
-    @Bind(tv_all)
-    TextView tvAll;
-    @Bind(iv_all_arrow)
-    ImageView ivAllArrow;
-    @Bind(R.id.ll_sort_all)
-    LinearLayout llSortAll;
-    @Bind(tv_zhuanti)
-    TextView tvZhuanti;
-    @Bind(R.id.iv_zhuanti_arrrow)
-    ImageView ivZhuantiArrrow;
-    @Bind(R.id.ll_sort_zhuanti)
-    LinearLayout llSortZhuanti;
-    @Bind(tv_recommend)
-    TextView tvRecommend;
-    @Bind(iv_recommend_arrow)
-    ImageView ivRecommendArrow;
-    @Bind(R.id.ll_sort_recommend)
-    LinearLayout llSortRecommend;
-    @Bind(view_down)
-    View viewDown;
-    @Bind(R.id.id_appbarlayout)
-    AppBarLayout idAppbarlayout;
-    @Bind(rcl_product)
-    RecyclerView rclProduct;
-    @Bind(R.id.lv1)
-    TextView lv1;
-    @Bind(R.id.nest_scroll_view)
-    NestedScrollView nestScrollView;
 
-    private boolean mClick = false;
+    private ProductRclAdapter mProductRclAdapter;
+    private LinearLayoutManager mLayoutManager;
     private View v;
     private PopupWindow mPopupWindow;
-    private ListView listView;//popupwindow的listview
-    private LinearLayoutManager mLayoutManager;
-    private ProductRclAdapter mProductRclAdapter;
-    private List<QueryProductListBean> mData, mRefresh;//产品列表的数据
-    private List<String> proTypeAll;//全部产品类型
-    private List<XyTypeDictionarysBean> mTypeData;
-    private String[] toBeStored;//转化成string[]
-    private int mCurrentPage = 1;
     private SortAllAdapter adapter = null;//全部分类
-    private int mCheckAllPos = -1, mCheckZhuanPos = -1, mCheckRecPos = -1;
     private SortThemeAdapter mThemeAdapter = null;//主题adapter
     private SortRecommendAdapter mSortRecAdapter = null;//推荐adapter
+    private int mCheckAllPos = -1, mCheckZhuanPos = -1, mCheckRecPos = -1;
+    private boolean mClick = false;
+    private ListView listView;//popupwindow的listview
+    private List<String> proTypeAll;//全部产品类型
+    private List<QueryProductListBean> mData,mRefresh;//产品列表的数据
+    private List<XyTypeDictionarysBean> mTypeData;//全部类型的数据
+    private String[] toBeStored;//转化成string[]
+    private int mCurrentPage=1;
 
     @Override
     protected int getLayoutId() {
@@ -111,39 +99,41 @@ public class TourFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView() {
-        mLayoutManager = new LinearLayoutManager(context);
-        mProductRclAdapter = new ProductRclAdapter(context);
-        mRefresh = new ArrayList<>();
+    protected void setup(View rootView, @Nullable Bundle savedInstanceState) {
+        super.setup(rootView, savedInstanceState);
+        ViewHelper.click(this, ll_sort_all, ll_sort_recommend, ll_sort_zhuanti);
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        mProductRclAdapter = new ProductRclAdapter(getActivity());
+        mRefresh=new ArrayList<>();
 
         mLayoutManager.setSmoothScrollbarEnabled(true);
         mLayoutManager.setAutoMeasureEnabled(true);
-        rclProduct.setLayoutManager(mLayoutManager);
-        View view1 = UiUtils.inflate(R.layout.fragment_tourism_poplistview);
-
+        rcl_product.setLayoutManager(mLayoutManager);
+        View view1 = inflater.inflate(R.layout.fragment_tourism_poplistview, null);
         listView = (ListView) view1.findViewById(R.id.lv_sort);
         mPopupWindow = new PopupWindow(view1, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         v = view1.findViewById(R.id.ll_cover);
         v.getBackground().setAlpha(100);
         getProductType();
         loadMore();
-        //解决嵌套的卡顿
-        rclProduct.setHasFixedSize(true);
-        rclProduct.setNestedScrollingEnabled(false);
+
+         //解决嵌套的卡顿
+        rcl_product.setHasFixedSize(true);
+        rcl_product.setNestedScrollingEnabled(false);
     }
 
-
-    /**
-     * 网络请求
-     */
     private void getProductType() {
         proTypeAll = new ArrayList<>();
         HashMap<String, String> map = new HashMap();
         map.put("typeCode", "PRODUCT_TYPE_CODE");
-        LoadNet.getDataPost(ConstantNetUtil.PRODUCT_TYPE, context, map, new LoadNetHttp() {
+        LoadNet.getDataPost(ConstantNetUtil.PRODUCT_TYPE, getActivity(), map, new LoadNetHttp() {
             @Override
             public void success(String context) {
+
                 ProductType productType = JSON.parseObject(context, ProductType.class);
+
                 if (productType.getStatus().equals("1")) {
                     mTypeData = productType.getXyTypeDictionarys();
                     proTypeAll.add("全部");
@@ -154,6 +144,8 @@ public class TourFragment extends BaseFragment {
                     }
                     toBeStored = proTypeAll.toArray(new String[proTypeAll.size()]);
                     getProductList("", "", "1");
+                } else {
+                    Toast.makeText(getActivity(), productType.getMsg(), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -210,21 +202,22 @@ public class TourFragment extends BaseFragment {
         map.put("themeId", proTheme);
         map.put("queryType", queryType);
         map.put("pageSize", "10");
-        map.put("pageNo", mCurrentPage + "");
-        LoadNet.getDataPost(ConstantNetUtil.PRODUCT_LIST, context, map, new LoadNetHttp() {
+        map.put("pageNo", mCurrentPage+"");
+        LoadNet.getDataPost(ConstantNetUtil.PRODUCT_LIST, getActivity(), map, new LoadNetHttp() {
             @Override
             public void success(String context) {
                 ProductListBean productListBean = JSON.parseObject(context, ProductListBean.class);
-                mData = new ArrayList<>();
+                mData=new ArrayList<>();
                 mData = productListBean.getQueryProductList();
                 mRefresh.addAll(mData);
-                if (mCurrentPage == 1) {
+                if (mCurrentPage==1){
                     mProductRclAdapter.setmData(mData);
-                } else {
+                }else {
                     mProductRclAdapter.setmData(mRefresh);
                 }
-                rclProduct.setAdapter(mProductRclAdapter);
+                rcl_product.setAdapter(mProductRclAdapter);
                 mProductRclAdapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -232,22 +225,20 @@ public class TourFragment extends BaseFragment {
 
             }
         });
+
     }
 
-    /**
-     * 加载更多
-     */
     private void loadMore() {
-        nestScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+        nest_scroll_view.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
             public void onScrollChange(NestedScrollView nestedScrollView, int i, int i1, int i2, int i3) {
                 if (i1 == (nestedScrollView.getChildAt(0).getMeasuredHeight() - nestedScrollView.getMeasuredHeight())) {
                     mCurrentPage++;
-                    getProductList(tvAll.getText().toString(), tvZhuanti.getText().toString(), tvRecommend.getText().toString());
+                    getProductList(tv_all.getText().toString(),tv_zhuanti.getText().toString(),tv_recommend.getText().toString());
+
                 }
             }
         });
-
         mProductRclAdapter.setOnItemClickLitener(new ProductRclAdapter.OnItemClickLitener() {
             @Override
             public void onItemClick(View view, int position) {
@@ -257,22 +248,16 @@ public class TourFragment extends BaseFragment {
             }
         });
     }
-
     @Override
-    protected void initData() {
-
-    }
-
-    @OnClick({R.id.ll_sort_all, R.id.ll_sort_zhuanti, R.id.ll_sort_recommend})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.ll_sort_all://点击全部
                 if (!mClick) {
-                    tvAll.setTextColor(android.graphics.Color.RED);
-                    ivAllArrow.setImageResource(R.drawable.up_red_arrow);
-                    adapter = new SortAllAdapter(context, mCheckAllPos, toBeStored);
+                    tv_all.setTextColor(android.graphics.Color.RED);
+                    iv_all_arrow.setImageResource(R.drawable.up_red_arrow);
+                    adapter = new SortAllAdapter(getActivity(), mCheckAllPos, toBeStored);
                     listView.setAdapter(adapter);
-                    showmPopupWindow(viewDown, adapter, 1);
+                    showmPopupWindow(view_down, adapter, 1);
                     mClick = true;
                 } else {
                     mClick = false;
@@ -282,14 +267,14 @@ public class TourFragment extends BaseFragment {
             case R.id.ll_sort_zhuanti://点击主题
                 if (!mClick) {
                     if (mCheckZhuanPos == -1) {
-                        tvZhuanti.setText(R.string.buxian);
+                        tv_zhuanti.setText(R.string.buxian);
                     }
-                    tvZhuanti.setTextColor(android.graphics.Color.RED);
-                    ivZhuantiArrrow.setImageResource(R.drawable.up_red_arrow);
-                    mThemeAdapter = new SortThemeAdapter(context, mCheckZhuanPos);
+                    tv_zhuanti.setTextColor(android.graphics.Color.RED);
+                    iv_zhuanti_arrow.setImageResource(R.drawable.up_red_arrow);
+                    mThemeAdapter = new SortThemeAdapter(getActivity(), mCheckZhuanPos);
                     listView.setAdapter(mThemeAdapter);
                     mThemeAdapter.notifyDataSetChanged();
-                    showmPopupWindow(viewDown, mThemeAdapter, 2);
+                    showmPopupWindow(view_down, mThemeAdapter, 2);
                     mClick = true;
                 } else {
                     mClick = false;
@@ -298,11 +283,11 @@ public class TourFragment extends BaseFragment {
                 break;
             case R.id.ll_sort_recommend://点击推荐
                 if (!mClick) {
-                    ivRecommendArrow.setImageResource(R.drawable.up_red_arrow);
+                    iv_recommend_arrow.setImageResource(R.drawable.up_red_arrow);
                     mSortRecAdapter = new SortRecommendAdapter(getActivity(), mCheckRecPos);
                     listView.setAdapter(mSortRecAdapter);
                     mSortRecAdapter.notifyDataSetChanged();
-                    showmPopupWindow(viewDown, mSortRecAdapter, 3);
+                    showmPopupWindow(view_down, mSortRecAdapter, 3);
                     mClick = true;
                 } else {
                     mClick = false;
@@ -312,12 +297,14 @@ public class TourFragment extends BaseFragment {
             default:
                 break;
         }
+
     }
 
-    private void showmPopupWindow(View view, final ArrayAdapter ada, final int flag) {
+    public void showmPopupWindow(View view, final ArrayAdapter ada, final int flag) {
         if (mPopupWindow == null) {
-            mPopupWindow = new PopupWindow(context);
+            mPopupWindow = new PopupWindow(getActivity());
         }
+
         mPopupWindow.update();
         mPopupWindow.setTouchable(true);
         mPopupWindow.setOutsideTouchable(true);
@@ -331,26 +318,27 @@ public class TourFragment extends BaseFragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-                mCurrentPage = 1;
-                mRefresh = new ArrayList<>();
-                nestScrollView.scrollTo(0, 0);
+                 mCurrentPage=1;
+                 mRefresh=new ArrayList<>();
+                 nest_scroll_view.scrollTo(0,0);
                 if (flag == 1) {
-                    tvAll.setText(ada.getItem(pos) + "");
-                    tvAll.setTextColor(android.graphics.Color.RED);
-                    ivAllArrow.setImageResource(R.drawable.down_red_arrow);
+                    tv_all.setText(ada.getItem(pos) + "");
+                    tv_all.setTextColor(android.graphics.Color.RED);
+                    iv_all_arrow.setImageResource(R.drawable.down_red_arrow);
                     mCheckAllPos = pos;
+
                 } else if (flag == 2) {
-                    tvZhuanti.setText(ada.getItem(pos) + "");
-                    tvZhuanti.setTextColor(android.graphics.Color.RED);
-                    ivZhuantiArrrow.setImageResource(R.drawable.down_red_arrow);
+                    tv_zhuanti.setText(ada.getItem(pos) + "");
+                    tv_zhuanti.setTextColor(android.graphics.Color.RED);
+                    iv_zhuanti_arrow.setImageResource(R.drawable.down_red_arrow);
                     mCheckZhuanPos = pos;
                 } else {
-                    tvRecommend.setText(ada.getItem(pos) + "");
-                    tvRecommend.setTextColor(android.graphics.Color.RED);
-                    ivRecommendArrow.setImageResource(R.drawable.down_red_arrow);
+                    tv_recommend.setText(ada.getItem(pos) + "");
+                    tv_recommend.setTextColor(android.graphics.Color.RED);
+                    iv_recommend_arrow.setImageResource(R.drawable.down_red_arrow);
                     mCheckRecPos = pos;
                 }
-                getProductList(tvAll.getText().toString(), tvZhuanti.getText().toString(), tvRecommend.getText().toString());
+                getProductList(tv_all.getText().toString(), tv_zhuanti.getText().toString(), tv_recommend.getText().toString());
                 mClick = false;
                 mPopupWindow.dismiss();
             }
@@ -362,26 +350,26 @@ public class TourFragment extends BaseFragment {
                 //旋转0度是复位ImageView
                 if (flag == 1) {
                     if (mCheckAllPos == -1 || mCheckAllPos == 0) {
-                        tvAll.setTextColor(Color.BLACK);
-                        ivAllArrow.setImageResource(R.drawable.small_arrow_down);
+                        tv_all.setTextColor(Color.BLACK);
+                        iv_all_arrow.setImageResource(R.drawable.small_arrow_down);
                     } else {
-                        ivAllArrow.setImageResource(R.drawable.down_red_arrow);
+                        iv_all_arrow.setImageResource(R.drawable.down_red_arrow);
                     }
                 } else if (flag == 2) {
                     if (mCheckZhuanPos == -1 || mCheckZhuanPos == 0) {
-                        tvZhuanti.setText(R.string.buxian);
-                        tvZhuanti.setTextColor(Color.BLACK);
-                        ivZhuantiArrrow.setImageResource(R.drawable.small_arrow_down);
+                        tv_zhuanti.setText(R.string.buxian);
+                        tv_zhuanti.setTextColor(Color.BLACK);
+                        iv_zhuanti_arrow.setImageResource(R.drawable.small_arrow_down);
                     } else {
-                        ivZhuantiArrrow.setImageResource(R.drawable.down_red_arrow);
+                        iv_zhuanti_arrow.setImageResource(R.drawable.down_red_arrow);
                     }
                 } else {
-                    ivRecommendArrow.setImageResource(R.drawable.down_red_arrow);
+                    iv_recommend_arrow.setImageResource(R.drawable.down_red_arrow);
                 }
+
             }
         });
     }
-
     @Override
     public void onPause() {
         super.onPause();

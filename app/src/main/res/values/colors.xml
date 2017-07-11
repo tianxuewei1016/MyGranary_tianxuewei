@@ -19,6 +19,17 @@
     <color name="colorTalent">#444950</color>
     <color name="colorText">#6E7479</color>
     <color name="colorTalentMenu">#313335</color>
+    <color name="text_black">#000000</color>
+    <color name="text_gray">#a3a3a3</color>
+    <color name="homepage_bg">#f0f3f4</color>
+    <color name="homepage_red_line">#e64a4d</color>
+    <color name="homepage_line">#e5e5e5</color>
+    <color name="red" >#ff0000</color>
+    <color name="order_goods_shape_color">#EFEEEC</color>
+
+
+
+
 
 
 </resources>
