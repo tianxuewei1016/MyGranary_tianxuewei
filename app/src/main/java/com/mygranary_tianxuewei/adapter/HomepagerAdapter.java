@@ -29,12 +29,12 @@ import butterknife.ButterKnife;
 
 public class HomepagerAdapter extends RecyclerView.Adapter {
     private final Context context;
-    private final List<HomepagerBean.DataBean.ItemsBean.ListBean> datas;
+    private final List<HomepagerBean.DataBean.ItemsBean.ListBeanX> datas;
 
     @Override
     public int getItemViewType(int position) {
         int itemViewType = 0;
-        int type = Integer.parseInt(datas.get(position).getHome_type());
+        int type = datas.get(position).getHome_type();
         if (type == 2) {
             itemViewType = 2;
         } else if (type == 4) {
@@ -50,7 +50,7 @@ public class HomepagerAdapter extends RecyclerView.Adapter {
         return datas.size();
     }
 
-    public HomepagerAdapter(Context context, List<HomepagerBean.DataBean.ItemsBean.ListBean> lists) {
+    public HomepagerAdapter(Context context, List<HomepagerBean.DataBean.ItemsBean.ListBeanX> lists) {
         this.context = context;
         this.datas = lists;
     }
@@ -78,7 +78,8 @@ public class HomepagerAdapter extends RecyclerView.Adapter {
         if (getItemViewType(position) == 1) {
             MyViewHodler myViewHodler = (MyViewHodler) holder;
             Glide.with(context)
-                    .load(datas.get(position).getOne().getPic_url())
+//                    .load(datas.get(position).getOne().getPic_url())
+                    .load(datas.get(position).getPic_url())
                     .into(myViewHodler.ivHpageIcon);
         }
 
@@ -133,7 +134,7 @@ public class HomepagerAdapter extends RecyclerView.Adapter {
              * 跳转到新的页面练习数据的传递
              */
             ivHpageIcon.setOnClickListener(new View.OnClickListener() {
-                List<HomepagerBean.DataBean.ItemsBean.ListBean> ItemsBean = datas;
+                List<HomepagerBean.DataBean.ItemsBean.ListBeanX> ItemsBean = datas;
                 @Override
                 public void onClick(View v) {
 //                    HomepagerBean.DataBean.ItemsBean.ListBean itemsBean = this.ItemsBean.get(getLayoutPosition());
@@ -158,10 +159,10 @@ public class HomepagerAdapter extends RecyclerView.Adapter {
             super(view);
             ButterKnife.bind(this, view);
             gvItemHpage1.setOnClickListener(new View.OnClickListener() {
-                List<HomepagerBean.DataBean.ItemsBean.ListBean> ItemsBean = datas;
+                List<HomepagerBean.DataBean.ItemsBean.ListBeanX> ItemsBean = datas;
                 @Override
                 public void onClick(View v) {
-                    HomepagerBean.DataBean.ItemsBean.ListBean itemsBean = this.ItemsBean.get(getLayoutPosition());
+                    HomepagerBean.DataBean.ItemsBean.ListBeanX itemsBean = this.ItemsBean.get(getLayoutPosition());
                     Intent intent = new Intent(context, HomepageActivity.class);
                     intent.putExtra(ConstantUtil.HOME_PAGER, itemsBean);
                     context.startActivity(intent);
@@ -173,11 +174,11 @@ public class HomepagerAdapter extends RecyclerView.Adapter {
              * 这个里面数据不对,还得调参数
              */
             gvItemHpage2.setOnClickListener(new View.OnClickListener() {
-                List<HomepagerBean.DataBean.ItemsBean.ListBean> ItemsBean = datas;
+                List<HomepagerBean.DataBean.ItemsBean.ListBeanX> ItemsBean = datas;
 
                 @Override
                 public void onClick(View v) {
-                    HomepagerBean.DataBean.ItemsBean.ListBean itemsBean = this.ItemsBean.get(getLayoutPosition());
+                    HomepagerBean.DataBean.ItemsBean.ListBeanX itemsBean = this.ItemsBean.get(getLayoutPosition());
                     Intent intent = new Intent(context, HomepageActivity.class);
                     intent.putExtra(ConstantUtil.HOME_PAGER, itemsBean);
                     context.startActivity(intent);
@@ -203,11 +204,11 @@ public class HomepagerAdapter extends RecyclerView.Adapter {
             super(view);
             ButterKnife.bind(this, view);
             view.setOnClickListener(new View.OnClickListener() {
-                List<HomepagerBean.DataBean.ItemsBean.ListBean> ItemsBean = datas;
+                List<HomepagerBean.DataBean.ItemsBean.ListBeanX> ItemsBean = datas;
 
                 @Override
                 public void onClick(View v) {
-                    HomepagerBean.DataBean.ItemsBean.ListBean itemsBean = this.ItemsBean.get(getLayoutPosition());
+                    HomepagerBean.DataBean.ItemsBean.ListBeanX itemsBean = this.ItemsBean.get(getLayoutPosition());
                     Intent intent = new Intent(context, HomepageActivity.class);
                     intent.putExtra(ConstantUtil.HOME_PAGER, itemsBean);
                     context.startActivity(intent);

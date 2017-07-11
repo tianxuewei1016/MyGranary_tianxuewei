@@ -66,42 +66,42 @@ public class ApiConstants {
     /**
      * 达人默认排序
      */
-    public static String getOrderDefaultUrl(int page) {
+    public static final String getOrderDefaultUrl(int page) {
         return "http://mobile.iliangcang.com/user/masterList?app_key=Android&count=18&page=" +
                 page +
                 "&sig=79F01B94B8EBEFAC8EEB344EE2B20AA2%7C383889010803768&v=1.0";
     }
 
     //最多排序
-    public static String getOrderSumUrl(int page) {
+    public static final String getOrderSumUrl(int page) {
         return "http://mobile.iliangcang.com/user/masterList?app_key=Android&count=18&orderby=goods_sum&page=" +
                 page +
                 "&sig=79F01B94B8EBEFAC8EEB344EE2B20AA2%7C383889010803768&v=1.0";
     }
 
     //最受欢迎
-    public static String getOrderFollwerUrl(int page) {
+    public static final String getOrderFollwerUrl(int page) {
         return "http://mobile.iliangcang.com/user/masterList?app_key=Android&count=18&orderby=followers&page=" +
                 page +
                 "&sig=79F01B94B8EBEFAC8EEB344EE2B20AA2%7C383889010803768&v=1.0";
     }
 
     //最新排序
-    public static String getOrderActionUrl(int page) {
+    public static final String getOrderActionUrl(int page) {
         return "http://mobile.iliangcang.com/user/masterList?app_key=Android&count=18&orderby=action_time&page=" +
                 page +
                 "&sig=CD0E234053E25DD6111E3DBD450A4B85%7C954252010968868&v=1.0";
     }
 
     //最新加入
-    public static String getOrderTimeUrl(int page) {
+    public static final String getOrderTimeUrl(int page) {
         return "http://mobile.iliangcang.com/user/masterList?app_key=Android&count=18&orderby=reg_time&page=" +
                 page +
                 "&sig=79F01B94B8EBEFAC8EEB344EE2B20AA2%7C383889010803768&v=1.0";
     }
 
     //搜索
-    public static String getTalentSearchUrl(String keyWord, int page) {
+    public static final String getTalentSearchUrl(String keyWord, int page) {
         return "http://mobile.iliangcang.com/user/search?app_key=Android&count=18&keyword=" +
                 keyWord +
                 "&page=" +
@@ -113,10 +113,27 @@ public class ApiConstants {
      * 用户信息
      */
     //喜欢
-    public static String getUserLike(String id, int page) {
+    public static final String getUserLike(String id, int page) {
         return "http://mobile.iliangcang.com" +
                 "/user/masterLike?app_key=Android&count=10&owner_id=" + id + "&page=" + page + "&sig=CD0E234053E25DD6111E3DBD450A4B85%7C954252010968868&v=1.0";
     }
 
+    //推荐
+    public static String getUserTuijian(String id, int page) {
+        return "http://mobile.iliangcang.com" +
+                "/user/masterListInfo?app_key=Android&count=10&owner_id=" + id + "&page=" + page + "&sig=CD0E234053E25DD6111E3DBD450A4B85%7C954252010968868&v=1.0";
+    }
+
+    //关注
+    public static String getUserFollow(String id, int page) {
+        return "http://mobile.iliangcang.com" +
+                "/user/masterFollow?app_key=Android&count=12&owner_id=" + id + "&page=" + page + "&sig=CD0E234053E25DD6111E3DBD450A4B85%7C954252010968868&v=1.0";
+    }
+
+    //粉丝
+    public static String getUserFans(String id,int page){
+        return "http://mobile.iliangcang.com" +
+                "/user/masterFollowed?app_key=Android&count=12&owner_id="+id+"&page="+page+"&sig=6D569443F5A6EB51036D09737946AC2A%7C002841520425331&v=1.0";
+    }
 
 }

@@ -31,7 +31,7 @@ public class HomepageFragment extends BaseFragment {
     @Bind(R.id.type_home_layout)
     SwipeRefreshLayout typeHomeLayout;
     private HomepagerAdapter adapter;
-    private List<HomepagerBean.DataBean.ItemsBean.ListBean> lists;
+    private List<HomepagerBean.DataBean.ItemsBean.ListBeanX> lists;
 
     @Override
     protected int getLayoutId() {

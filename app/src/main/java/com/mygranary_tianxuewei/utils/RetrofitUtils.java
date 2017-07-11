@@ -35,7 +35,7 @@ public class RetrofitUtils {
         return createApi(UserService.class, ApiConstants.SPECIAL_URL);
     }
 
-//    //达人首页
+//    //达人首页,推荐
 //    public static UserService getEredarFragmentAPI() {
 //
 //        return createApi(UserService.class, ApiConstants.EREDAR_URL);

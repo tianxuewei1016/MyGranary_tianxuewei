@@ -32,6 +32,6 @@ public interface UserService {
     @GET(HOMEPAGER_FRAGMENT)
     Observable<HomepagerBean> getHomepagerFragmentInfo();
 
-//    @GET(EREDAR_FRAGMENT)
-//    Observable<EredarFragmentBean> getEredarFragmentInfo();
+//    @GET("user/masterListInfo?app_key=Android&count=10&owner_id=\" {id} \"&page=\" {page} \"&sig=CD0E234053E25DD6111E3DBD450A4B85%7C954252010968868&v=1.0")
+//    Observable<LikeAndRecommendBean> getEredarFragmentInfo(@Path("id") String id, @Query("page") int page);
 }

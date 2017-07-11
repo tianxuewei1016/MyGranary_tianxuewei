@@ -29,7 +29,7 @@ public class HomepageActivity extends BaseActivity {
     @Bind(R.id.progressbar)
     ProgressBar progressbar;
     private WebSettings settings;
-    private HomepagerBean.DataBean.ItemsBean.ListBean home_pager;
+    private HomepagerBean.DataBean.ItemsBean.ListBeanX home_pager;
 
     @Override
     public int getLayoutId() {
@@ -43,7 +43,7 @@ public class HomepageActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        home_pager = (HomepagerBean.DataBean.ItemsBean.ListBean) getIntent().getSerializableExtra(ConstantUtil.HOME_PAGER);
+        home_pager = (HomepagerBean.DataBean.ItemsBean.ListBeanX) getIntent().getSerializableExtra(ConstantUtil.HOME_PAGER);
 
         settings = webview.getSettings();
         //设置相关配置
