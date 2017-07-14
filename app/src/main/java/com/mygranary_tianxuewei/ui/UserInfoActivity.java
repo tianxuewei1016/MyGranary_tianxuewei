@@ -2,6 +2,7 @@ package com.mygranary_tianxuewei.ui;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -121,6 +122,7 @@ public class UserInfoActivity extends BaseActivity implements JsonCallBack {
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.right_in_ac, R.anim.left_out_ac);
             }
         });
     }
@@ -194,5 +196,14 @@ public class UserInfoActivity extends BaseActivity implements JsonCallBack {
             userRadioBtFocus.setText("关注\n" + items.getFollowing_count());
             userRadioBtFans.setText("粉丝\n" + items.getFollowed_count());
         }
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            finish();
+            overridePendingTransition(R.anim.right_in_ac, R.anim.left_out_ac);
+        }
+        return super.onKeyUp(keyCode, event);
     }
 }

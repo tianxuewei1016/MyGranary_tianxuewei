@@ -1,5 +1,6 @@
 package com.mygranary_tianxuewei.ui;
 
+import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -75,7 +76,17 @@ public class SpecialActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.right_in_ac, R.anim.left_out_ac);
             }
         });
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            finish();
+            overridePendingTransition(R.anim.right_in_ac, R.anim.left_out_ac);
+        }
+        return super.onKeyUp(keyCode, event);
     }
 }

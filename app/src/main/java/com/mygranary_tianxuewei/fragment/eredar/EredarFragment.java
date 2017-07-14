@@ -108,7 +108,6 @@ public class EredarFragment extends BaseFragment implements JsonCallBack {
                  * 结果会是所有touch事件无响应，包括点击事件
                  */
                 popupWindow.setTouchable(true);
-
                 popupWindow.setTouchInterceptor(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
@@ -386,4 +385,5 @@ public class EredarFragment extends BaseFragment implements JsonCallBack {
     protected void initData() {
 
     }
+
 }

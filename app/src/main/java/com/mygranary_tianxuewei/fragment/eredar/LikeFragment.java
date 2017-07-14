@@ -84,7 +84,7 @@ public class LikeFragment extends BaseFragment implements JsonCallBack {
 
     @Override
     public void successJson(String result, int requestCode) {
-        if (requestCode == 1) {
+        if (requestCode == 2) {
             Gson gson = new Gson();
             LikeAndRecommendBean bean = gson.fromJson(result, LikeAndRecommendBean.class);
             List<LikeAndRecommendBean.DataBean.ItemsBean.GoodsBean> goods = bean.getData().getItems().getGoods();

@@ -3,6 +3,7 @@ package com.mygranary_tianxuewei.ui;
 import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -143,5 +144,14 @@ public class ShopTypeActivity extends BaseActivity {
                 showToast("分类里面的购物车被点击了");
             }
         });
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            finish();
+            overridePendingTransition(R.anim.right_in_ac, R.anim.left_out_ac);
+        }
+        return super.onKeyUp(keyCode, event);
     }
 }

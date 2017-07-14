@@ -47,7 +47,6 @@ public class TypeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-
         getDataFromNet();
 //        //设置下拉的距离
 //        typeRefreshLayout.setDistanceToTriggerSync(100);

@@ -1,18 +1,17 @@
-package com.mygranary_tianxuewei.fragment;
+package com.mygranary_tianxuewei.fragment.magazine;
 
-import com.mygranary_tianxuewei.R;
 import com.mygranary_tianxuewei.base.BaseFragment;
 
 /**
- * 作者：田学伟 on 2017/7/5 19:20
+ * 作者：田学伟 on 2017/7/12 12:29
  * QQ：93226539
- * 作用：杂志
+ * 作用：作者
  */
 
-public class MagazineFragment extends BaseFragment{
+public class AuthorFragment extends BaseFragment{
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_magazine;
+        return 0;
     }
 
     @Override

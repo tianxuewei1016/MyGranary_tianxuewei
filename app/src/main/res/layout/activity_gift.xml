@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_shop_type"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_brand"
+    tools:context="com.mygranary_tianxuewei.ui.ShopTypeActivity">
+
+    <include
+        android:id="@+id/titlebar_shop"
+        layout="@layout/titlebar_gift" />
+
+    <TextView
+        android:id="@+id/tv_shop_gift"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/titlebar_shop"
+        android:layout_gravity="center|end"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:hint="价格帅选"
+        android:imeOptions="actionSearch"
+        android:maxLines="1"
+        android:textColor="@color/color_heise" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_shop_gift">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_gift"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</RelativeLayout>

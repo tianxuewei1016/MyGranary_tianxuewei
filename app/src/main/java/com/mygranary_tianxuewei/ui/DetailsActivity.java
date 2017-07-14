@@ -1,5 +1,6 @@
 package com.mygranary_tianxuewei.ui;
 
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -141,6 +142,14 @@ public class DetailsActivity extends BaseActivity {
                 showToast("加入购物车...");
             }
         });
+    }
 
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            finish();
+            overridePendingTransition(R.anim.right_in_ac, R.anim.left_out_ac);
+        }
+        return super.onKeyUp(keyCode, event);
     }
 }
