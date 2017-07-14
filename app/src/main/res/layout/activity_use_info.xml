@@ -56,11 +56,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.v4.view.ViewPager
+            <ImageView
                 android:id="@+id/shop_info_viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:layout_marginBottom="15dp" />
+                android:layout_marginBottom="15dp"
+                android:scaleType="fitXY" />
 
             <RelativeLayout
                 android:id="@+id/shop_info_re"

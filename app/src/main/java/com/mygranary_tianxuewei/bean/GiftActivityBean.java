@@ -1,5 +1,6 @@
 package com.mygranary_tianxuewei.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
  * 作用：
  */
 
-public class GiftActivityBean {
+public class GiftActivityBean implements Serializable{
 
     /**
      * meta : {"status":0,"server_time":"2017-07-13 14:18:27","account_id":0,"cost":0.07033109664916992,"errdata":null,"errmsg":""}
@@ -44,7 +45,7 @@ public class GiftActivityBean {
         this.data = data;
     }
 
-    public static class MetaBean {
+    public static class MetaBean implements Serializable{
         /**
          * status : 0
          * server_time : 2017-07-13 14:18:27
@@ -110,7 +111,7 @@ public class GiftActivityBean {
         }
     }
 
-    public static class DataBean {
+    public static class DataBean implements Serializable{
         /**
          * has_more : true
          * num_items : 52
@@ -145,7 +146,7 @@ public class GiftActivityBean {
             this.items = items;
         }
 
-        public static class ItemsBean {
+        public static class ItemsBean implements Serializable{
             /**
              * goods_id : 247765
              * goods_image : http://imgs-qn.iliangcang.com/ware/goods/big/2/247/247765.jpg
@@ -310,7 +311,7 @@ public class GiftActivityBean {
                 this.shop_price = shop_price;
             }
 
-            public static class BrandInfoBean {
+            public static class BrandInfoBean implements Serializable{
                 /**
                  * brand_id : 217
                  * brand_name : Artplus艺爆品

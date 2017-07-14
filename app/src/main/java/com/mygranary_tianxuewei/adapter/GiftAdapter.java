@@ -1,7 +1,6 @@
 package com.mygranary_tianxuewei.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.mygranary_tianxuewei.R;
 import com.mygranary_tianxuewei.bean.GiftActivityBean;
-import com.mygranary_tianxuewei.ui.UseInfoActivity;
 import com.mygranary_tianxuewei.utils.UiUtils;
 
 import butterknife.Bind;
@@ -71,12 +69,21 @@ public class GiftAdapter extends RecyclerView.Adapter<GiftAdapter.MyViewHolder> 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, UseInfoActivity.class);
-                    context.startActivity(intent);
-//                    MainActivity mainActivity = (MainActivity) context;
-//                    mainActivity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                    if (listener != null) {
+                        listener.OnItemClick(getLayoutPosition());
+                    }
                 }
             });
         }
+    }
+
+    public interface OnItemClickListener {
+        void OnItemClick(int position);
+    }
+
+    private TypeFragmentAdapter.OnItemClickListener listener;
+
+    public void setOnItemClickListener(TypeFragmentAdapter.OnItemClickListener l) {
+        this.listener = l;
     }
 }

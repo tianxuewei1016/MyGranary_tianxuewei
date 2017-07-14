@@ -1,5 +1,6 @@
 package com.mygranary_tianxuewei.ui;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
@@ -10,11 +11,14 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.mygranary_tianxuewei.R;
 import com.mygranary_tianxuewei.adapter.GiftAdapter;
+import com.mygranary_tianxuewei.adapter.TypeFragmentAdapter;
 import com.mygranary_tianxuewei.base.BaseActivity;
 import com.mygranary_tianxuewei.bean.GiftActivityBean;
 import com.mygranary_tianxuewei.utils.HttpUtils;
 import com.mygranary_tianxuewei.utils.JsonCallBack;
 import com.mygranary_tianxuewei.widget.ComprehensiveItemDecoration;
+
+import java.util.List;
 
 import butterknife.Bind;
 
@@ -42,6 +46,7 @@ public class GiftActivity extends BaseActivity implements JsonCallBack {
     private String url5;
     private String url6;
     private String url7;
+    private GiftActivityBean.DataBean data;
 
     @Override
     public int getLayoutId() {
@@ -91,7 +96,7 @@ public class GiftActivity extends BaseActivity implements JsonCallBack {
 
     private void setUpAdapter(String result) {
         GiftActivityBean bean = new Gson().fromJson(result, GiftActivityBean.class);
-        GiftActivityBean.DataBean data = bean.getData();
+        data = bean.getData();
         adapter = new GiftAdapter(this, data);
         //设置适配器
         rvGift.setAdapter(adapter);
@@ -100,6 +105,19 @@ public class GiftActivity extends BaseActivity implements JsonCallBack {
         rvGift.setLayoutManager(manager);
         //设置间距
         rvGift.addItemDecoration(new ComprehensiveItemDecoration(18));
+
+        adapter.setOnItemClickListener(new TypeFragmentAdapter.OnItemClickListener() {
+            List<GiftActivityBean.DataBean.ItemsBean> ItemsBean = data.getItems();
+
+            @Override
+            public void OnItemClick(int position) {
+                GiftActivityBean.DataBean.ItemsBean itemsBean = this.ItemsBean.get(position);
+                Intent intent = new Intent(GiftActivity.this, UseInfoActivity.class);
+                intent.putExtra("gift", itemsBean);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            }
+        });
     }
 
     @Override
