@@ -10,6 +10,7 @@ import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
 import cn.jpush.android.api.JPushInterface;
+import cn.sharesdk.framework.ShareSDK;
 
 /**
  * 作者：田学伟 on 2017/7/5 18:52
@@ -56,6 +57,9 @@ public class MyApplication extends Application {
         //极光推送的初始化
         JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
         JPushInterface.init(this);            // 初始化 JPush
+
+        //初始化ShareSDK
+        ShareSDK.initSDK(this);
     }
 
     private void initLeak() {
