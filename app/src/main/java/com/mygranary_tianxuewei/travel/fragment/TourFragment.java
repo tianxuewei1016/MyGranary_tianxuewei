@@ -268,7 +268,7 @@ public class TourFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.ll_sort_all://点击全部
                 if (!mClick) {
-                    tvAll.setTextColor(android.graphics.Color.RED);
+                    tvAll.setTextColor(Color.RED);
                     ivAllArrow.setImageResource(R.drawable.up_red_arrow);
                     adapter = new SortAllAdapter(context, mCheckAllPos, toBeStored);
                     listView.setAdapter(adapter);
@@ -284,7 +284,7 @@ public class TourFragment extends BaseFragment {
                     if (mCheckZhuanPos == -1) {
                         tvZhuanti.setText(R.string.buxian);
                     }
-                    tvZhuanti.setTextColor(android.graphics.Color.RED);
+                    tvZhuanti.setTextColor(Color.RED);
                     ivZhuantiArrrow.setImageResource(R.drawable.up_red_arrow);
                     mThemeAdapter = new SortThemeAdapter(context, mCheckZhuanPos);
                     listView.setAdapter(mThemeAdapter);
@@ -336,17 +336,17 @@ public class TourFragment extends BaseFragment {
                 nestScrollView.scrollTo(0, 0);
                 if (flag == 1) {
                     tvAll.setText(ada.getItem(pos) + "");
-                    tvAll.setTextColor(android.graphics.Color.RED);
+                    tvAll.setTextColor(Color.RED);
                     ivAllArrow.setImageResource(R.drawable.down_red_arrow);
                     mCheckAllPos = pos;
                 } else if (flag == 2) {
                     tvZhuanti.setText(ada.getItem(pos) + "");
-                    tvZhuanti.setTextColor(android.graphics.Color.RED);
+                    tvZhuanti.setTextColor(Color.RED);
                     ivZhuantiArrrow.setImageResource(R.drawable.down_red_arrow);
                     mCheckZhuanPos = pos;
                 } else {
                     tvRecommend.setText(ada.getItem(pos) + "");
-                    tvRecommend.setTextColor(android.graphics.Color.RED);
+                    tvRecommend.setTextColor(Color.RED);
                     ivRecommendArrow.setImageResource(R.drawable.down_red_arrow);
                     mCheckRecPos = pos;
                 }

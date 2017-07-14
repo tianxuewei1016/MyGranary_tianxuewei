@@ -30,6 +30,7 @@ public class WebActivity extends BaseActivity {
     private String url;
     private String name;
 
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_web;

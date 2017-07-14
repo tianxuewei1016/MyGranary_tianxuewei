@@ -99,9 +99,9 @@ public class ProductRclAdapter extends RecyclerView.Adapter<ProductRclAdapter.My
         void onItemClick(View view, int position);
     }
 
-    private ProductRclAdapter.OnItemClickLitener mOnItemClickLitener;
+    private OnItemClickLitener mOnItemClickLitener;
 
-    public void setOnItemClickLitener(ProductRclAdapter.OnItemClickLitener mOnItemClickLitener) {
+    public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener) {
         this.mOnItemClickLitener = mOnItemClickLitener;
     }
 }

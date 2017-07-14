@@ -9,6 +9,8 @@ import com.orhanobut.logger.Logger;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * 作者：田学伟 on 2017/7/5 18:52
  * QQ：93226539
@@ -51,6 +53,9 @@ public class MyApplication extends Application {
                         .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
                         .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
                         .build());
+        //极光推送的初始化
+        JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
+        JPushInterface.init(this);            // 初始化 JPush
     }
 
     private void initLeak() {

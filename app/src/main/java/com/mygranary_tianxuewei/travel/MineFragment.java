@@ -8,7 +8,6 @@ import com.mygranary_tianxuewei.base.BaseFragment;
 import com.mygranary_tianxuewei.travel.adapter.MineAdapter;
 import com.mygranary_tianxuewei.travel.fragment.ExpertFragment;
 import com.mygranary_tianxuewei.travel.fragment.HomeFragment;
-import com.mygranary_tianxuewei.travel.fragment.MyFragment;
 import com.mygranary_tianxuewei.travel.fragment.ServiceFragment;
 import com.mygranary_tianxuewei.travel.fragment.TourFragment;
 
@@ -48,7 +47,7 @@ public class MineFragment extends BaseFragment {
         fragments.add(new TourFragment());//旅游
         fragments.add(new ExpertFragment());//达人
         fragments.add(new ServiceFragment());//客服
-        fragments.add(new MyFragment());//我的
+        fragments.add(new MineFragment());//我的
     }
 
     @Override

@@ -45,7 +45,7 @@ public class SortRecommendAdapter extends ArrayAdapter {
         TextView text = (TextView) convertView.findViewById(R.id.tv_sort);
         ImageView iv= (ImageView) convertView.findViewById(R.id.iv_checkd);
         if (position==checkPos||(checkPos==-1&&position==0)){
-            text.setTextColor(android.graphics.Color.RED);
+            text.setTextColor(Color.RED);
             iv.setVisibility(View.VISIBLE);
         } else {
             text.setTextColor(Color.BLACK);

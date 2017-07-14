@@ -38,7 +38,7 @@ public class LoadNet {
                 .build()
                 .execute(new StringCallback() {
                     @Override
-                    public void onError(okhttp3.Call call, Exception e, int id) {
+                    public void onError(Call call, Exception e, int id) {
                         Log.e("TAG", "加载失败" + e.getMessage());
                         http.failure(e.getMessage());
                     }
