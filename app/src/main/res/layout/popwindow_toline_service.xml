@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/y30">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/for_id_number"
+        android:textColor="@color/text_black"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#C9C9CB" />
+
+    <TextView
+        android:id="@+id/btn_pro_id"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="@string/pro_number"
+        android:textColor="@color/homepage_red_line"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/btn_online_service"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_red_bg"
+        android:gravity="center"
+        android:text="@string/online_service"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginLeft="@dimen/x50"
+        android:layout_marginRight="@dimen/x50"/>
+
+    <TextView
+        android:id="@+id/btn_to_call"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_red_bg"
+        android:gravity="center"
+        android:text="@string/call_phone"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/y30"
+        android:layout_marginLeft="@dimen/x50"
+        android:layout_marginRight="@dimen/x50"/>
+
+    <TextView
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/order_goods_bg_selector"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textColor="@color/text_gray"
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/y30"
+        android:layout_marginLeft="@dimen/x50"
+        android:layout_marginRight="@dimen/x50"/>
+</LinearLayout>

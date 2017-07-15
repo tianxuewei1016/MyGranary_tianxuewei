@@ -137,12 +137,6 @@ public class HomepagerAdapter extends RecyclerView.Adapter {
                 List<HomepagerBean.DataBean.ItemsBean.ListBeanX> ItemsBean = datas;
                 @Override
                 public void onClick(View v) {
-//                    HomepagerBean.DataBean.ItemsBean.ListBean itemsBean = this.ItemsBean.get(getLayoutPosition());
-//                    Intent intent = new Intent(context, PagerActivity.class);
-//                    intent.putExtra(ConstantUtil.HOME_PAGER, itemsBean);
-//                    context.startActivity(intent);
-//                    MainActivity mainActivity = (MainActivity) context;
-//                    mainActivity.overridePendingTransition(R.anim.right_in, R.anim.left_out);
                     Toast.makeText(context, "被点击了....", Toast.LENGTH_SHORT).show();
                 }
             });

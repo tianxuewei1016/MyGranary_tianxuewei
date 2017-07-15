@@ -766,7 +766,7 @@ public class HomepagerBean implements Serializable {
                     }
                 }
 
-                public static class ListBean {
+                public static class ListBean implements Serializable{
                     /**
                      * slide_id : 95
                      * content_type : 2

@@ -112,6 +112,7 @@ public class DetailsActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                overridePendingTransition(R.anim.right_in_ac, R.anim.left_out_ac);
             }
         });
 

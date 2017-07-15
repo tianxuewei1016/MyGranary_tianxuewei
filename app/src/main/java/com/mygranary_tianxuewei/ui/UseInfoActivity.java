@@ -1,11 +1,18 @@
 package com.mygranary_tianxuewei.ui;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -26,7 +33,6 @@ import static com.mygranary_tianxuewei.R.id.shop_info_customer;
  * 商品详情页面
  */
 public class UseInfoActivity extends BaseActivity {
-
     @Bind(shop_info_customer)
     ImageView shopInfoCustomer;
     @Bind(R.id.shop_info_joinCar)
@@ -83,6 +89,7 @@ public class UseInfoActivity extends BaseActivity {
     ImageView shopInfoBack;
     @Bind(R.id.shop_info_shopcar)
     Button shopInfoShopcar;
+
     private GiftActivityBean.DataBean.ItemsBean gift;
 
     @Override
@@ -128,7 +135,7 @@ public class UseInfoActivity extends BaseActivity {
         shopInfoCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                toLineServicePopWindow();
             }
         });
         //加入购物车
@@ -170,9 +177,60 @@ public class UseInfoActivity extends BaseActivity {
                 oks.setSite("尚硅谷it教育");
                 // siteUrl是分享此内容的网站地址，仅在QQ空间使用
                 oks.setSiteUrl("http://atguigu.com/");
-
                 // 启动分享GUI
                 oks.show(UseInfoActivity.this);
+            }
+        });
+    }
+
+    /**
+     * 联系客服
+     */
+    private void toLineServicePopWindow() {
+        View view = LayoutInflater.from(this).inflate(R.layout.popwindow_toline_service, null);
+        TextView btn_pro_id = (TextView) view.findViewById(R.id.btn_pro_id);
+        TextView btn_online_service = (TextView) view.findViewById(R.id.btn_online_service);
+        TextView btn_to_call = (TextView) view.findViewById(R.id.btn_to_call);
+        TextView btncancel = (TextView) view.findViewById(R.id.btn_cancel);
+        final PopupWindow popupWindow = new PopupWindow(view, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setBackgroundDrawable(getResources().getDrawable(android.R.color.transparent));
+        popupWindow.setOutsideTouchable(true);
+        View parent = LayoutInflater.from(this).inflate(R.layout.activity_main, null);
+        popupWindow.showAtLocation(parent, Gravity.BOTTOM, 0, 0);
+        //popupWindow在弹窗的时候背景半透明
+        final WindowManager.LayoutParams params = getWindow().getAttributes();
+        params.alpha = 0.5f;
+        getWindow().setAttributes(params);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                params.alpha = 1.0f;
+                getWindow().setAttributes(params);
+            }
+        });
+
+
+        btn_online_service.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UseInfoActivity.this, CallCenterActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            }
+        });
+
+        btn_to_call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "010-80509333"));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+        btncancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
             }
         });
     }

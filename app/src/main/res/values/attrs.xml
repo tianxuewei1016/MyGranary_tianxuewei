@@ -18,7 +18,7 @@
         <attr name="civ_border_overlay" format="boolean" />
         <attr name="civ_fill_color" format="color" />
     </declare-styleable>
-    
+
     <declare-styleable name="ExpandTextView">
         <attr name="tvea_expandLines" format="integer" />
         <attr name="tvea_shrinkBitmap" format="reference" />
@@ -28,6 +28,15 @@
         <attr name="tvea_textContentSize" format="dimension" />
         <attr name="tvea_textShrink" format="string" />
         <attr name="tvea_textExpand" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="AddSubView">
+        <attr name="value" format="integer" />
+        <attr name="minValue" format="integer" />
+        <attr name="maxValue" format="integer" />
+        <attr name="numberAddBackground" format="reference" />
+        <attr name="numberSubBackground" format="reference" />
+
     </declare-styleable>
 
 </resources>

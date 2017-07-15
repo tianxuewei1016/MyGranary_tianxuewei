@@ -222,4 +222,8 @@ public class ApiConstants {
                 + "/topic/magazineList?app_key=Android&author_id=" + page + "&sig=2FA0974FFF1BC3DFA562AA63C8B5A84F%7C118265010131868&v=1.0";
     }
 
+    public static String getShopBraDetailsUrl(){
+        return "http://mobile.iliangcang.com/brand/brandShopList?app_key=Android&brand_id=14&count=20&page=1&sig=430BD99E6C913B8B8C3ED109737ECF15%7C830952120106768&v=1.0";
+    }
+
 }
