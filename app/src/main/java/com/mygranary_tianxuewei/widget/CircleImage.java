@@ -1,4 +1,4 @@
-package com.mygranary_tianxuewei.utils;
+package com.mygranary_tianxuewei.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -24,12 +24,12 @@ import android.widget.ImageView;
 import com.mygranary_tianxuewei.R;
 
 /**
- * 作者：田学伟 on 2017/7/9 16:09
+ * 作者：田学伟 on 2017/7/15 14:15
  * QQ：93226539
- * 作用：直角变圆角的自定义工具类
+ * 作用：
  */
 
-public class CircleImageView extends ImageView {
+public class CircleImage extends ImageView {
 
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;
 
@@ -68,17 +68,17 @@ public class CircleImageView extends ImageView {
     private boolean mBorderOverlay;
     private boolean mDisableCircularTransformation;
 
-    public CircleImageView(Context context) {
+    public CircleImage(Context context) {
         super(context);
 
         init();
     }
 
-    public CircleImageView(Context context, AttributeSet attrs) {
+    public CircleImage(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CircleImageView(Context context, AttributeSet attrs, int defStyle) {
+    public CircleImage(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircleImage, defStyle, 0);
@@ -186,6 +186,7 @@ public class CircleImageView extends ImageView {
      * Return the color drawn behind the circle-shaped drawable.
      *
      * @return The color drawn behind the drawable
+     *
      * @deprecated Fill color support is going to be removed in the future
      */
     @Deprecated
@@ -198,6 +199,7 @@ public class CircleImageView extends ImageView {
      * this has no effect if the drawable is opaque or no drawable is set.
      *
      * @param fillColor The color to be drawn behind the drawable
+     *
      * @deprecated Fill color support is going to be removed in the future
      */
     @Deprecated
@@ -217,6 +219,7 @@ public class CircleImageView extends ImageView {
      *
      * @param fillColorRes The color resource to be resolved to a color and
      *                     drawn behind the drawable
+     *
      * @deprecated Fill color support is going to be removed in the future
      */
     @Deprecated
@@ -393,7 +396,7 @@ public class CircleImageView extends ImageView {
     }
 
     private RectF calculateBounds() {
-        int availableWidth = getWidth() - getPaddingLeft() - getPaddingRight();
+        int availableWidth  = getWidth() - getPaddingLeft() - getPaddingRight();
         int availableHeight = getHeight() - getPaddingTop() - getPaddingBottom();
 
         int sideLength = Math.min(availableWidth, availableHeight);
@@ -424,5 +427,6 @@ public class CircleImageView extends ImageView {
 
         mBitmapShader.setLocalMatrix(mShaderMatrix);
     }
+
 }
 
