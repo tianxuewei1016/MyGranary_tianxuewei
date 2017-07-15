@@ -43,4 +43,9 @@
     <style name="ImageTranslucentTheme" parent="AppTheme">  
           
     </style>
+
+    <style name="tabTextAppearance">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/gray_i</item>
+    </style>
 </resources>

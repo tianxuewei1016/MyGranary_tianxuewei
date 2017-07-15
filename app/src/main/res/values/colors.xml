@@ -35,8 +35,8 @@
     <color name="colorBuy">#6F98C3</color>
     <color name="colorBlue2">#6E96C1</color>
     <color name="colorGoodsize">#2C2F34</color>
-
-
+    <color name="top_color" >#ff2f56</color>
+    <color name="gray_i">#fafafa</color>
 
 
 </resources>
