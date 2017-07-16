@@ -1,1 +1,1 @@
-include ':app', ':refreshlibrary', ':PhotoView_library'
+include ':app', ':refreshlibrary'

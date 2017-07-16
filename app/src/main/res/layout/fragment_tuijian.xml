@@ -21,12 +21,12 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
 
-    <ImageButton
-        android:id="@+id/ib_top_share"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp" />
+    <!--<ImageButton-->
+    <!--android:id="@+id/ib_top_share"-->
+    <!--android:layout_width="60dp"-->
+    <!--android:layout_height="60dp"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_marginBottom="20dp"-->
+    <!--android:layout_marginRight="20dp" />-->
 </RelativeLayout>
