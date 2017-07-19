@@ -1,7 +1,9 @@
 package com.mygranary_tianxuewei.ui;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -142,7 +144,7 @@ public class UseInfoActivity extends BaseActivity {
         shopInfoJoinCar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivityAnimation();
             }
         });
         //直接购买
@@ -184,6 +186,23 @@ public class UseInfoActivity extends BaseActivity {
     }
 
     /**
+     * 调转到购物车
+     */
+    private void startActivityAnimation() {
+        if (gift != null) {
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                Intent intent = new Intent(UseInfoActivity.this,CartActivity.class);
+                intent.putExtra("goodsbean", gift);
+                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(UseInfoActivity.this).toBundle());
+            }else{
+                Intent intent = new Intent(UseInfoActivity.this,CartActivity.class);
+                intent.putExtra("goodsbean", gift);
+                startActivity(intent);
+            }
+        }
+    }
+
+    /**
      * 联系客服
      */
     private void toLineServicePopWindow() {
@@ -208,7 +227,6 @@ public class UseInfoActivity extends BaseActivity {
                 getWindow().setAttributes(params);
             }
         });
-
 
         btn_online_service.setOnClickListener(new View.OnClickListener() {
             @Override

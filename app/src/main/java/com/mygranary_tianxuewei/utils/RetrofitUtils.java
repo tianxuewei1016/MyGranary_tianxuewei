@@ -17,6 +17,12 @@ public class RetrofitUtils {
         return createApi(UserService.class, ApiConstants.BASE_URL);
     }
 
+    //直播
+    public static UserService getSinatvFragmentAPI() {
+
+        return createApi(UserService.class, ApiConstants.SINATV_URL);
+    }
+
     //品牌
     public static UserService getBrandFragmentAPI() {
 

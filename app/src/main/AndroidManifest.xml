@@ -182,13 +182,14 @@
         </receiver>
 
         <!-- User defined.  For test only  用户自定义接收消息器,3.0.7开始支持,目前新tag/alias接口设置结果会在该广播接收器对应的方法中回调 -->
-        <!--<receiver android:name="com.example.jpushdemo.MyJPushMessageReceiver">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />-->
+        <!-- <receiver android:name="com.example.jpushdemo.MyJPushMessageReceiver"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" /> -->
 
-                <!--<category android:name="com.mygranary_tianxuewei" />-->
-            <!--</intent-filter>-->
-        <!--</receiver>-->
+
+        <!-- <category android:name="com.mygranary_tianxuewei" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
         <!-- Required  . Enable it you can get statistics data with channel -->
         <meta-data
             android:name="JPUSH_CHANNEL"
@@ -235,10 +236,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".ui.CallCenterActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.GifActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.CartActivity"
+        android:screenOrientation="portrait"/>
     </application>
+
 </manifest>

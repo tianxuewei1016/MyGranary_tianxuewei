@@ -7,6 +7,11 @@ package com.mygranary_tianxuewei.utils;
  */
 
 public class ApiConstants {
+
+    //直播
+    public static final String SINATV_URL = "http://live.bilibili.com/";
+    public static final String SINATV_URL_FRAGMENT = "AppNewIndex/common?_device=android&appkey=1d8b6e7d45233436&build=501000&mobi_app=android&platform=android&scale=hdpi&ts=1490013188000&sign=92541a11ed62841120e786e637b9db3b";
+
     //商店
     public static final String BASE_URL = "http://mobile.iliangcang.com/";
     //商店总分类的联网地址
@@ -225,5 +230,17 @@ public class ApiConstants {
     public static String getShopBraDetailsUrl(){
         return "http://mobile.iliangcang.com/brand/brandShopList?app_key=Android&brand_id=14&count=20&page=1&sig=430BD99E6C913B8B8C3ED109737ECF15%7C830952120106768&v=1.0";
     }
+
+    /**
+     * 百思不得姐
+     */
+    //段子接口
+    public static final String SHARE_JOKE = "http://s.budejie.com/topic/tag-topic/64/hot/budejie-android-6.6.3/0-20.json";
+    //推荐的接口
+    public static final String SHARE_RECOMMEND = "http://s.budejie.com/topic/list/jingxuan/1/budejie-android-6.6.3/0-20.json";
+
+    public static final String SHARE_BASE_RECOMMEND = "http://s.budejie.com/topic/list/jingxuan/1/budejie-android-6.6.3/0-";
+
+    public static final String SHARE_BASE_JOKE = "http://s.budejie.com/topic/tag-topic/64/hot/budejie-android-6.6.3/0-";
 
 }

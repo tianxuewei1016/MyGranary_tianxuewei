@@ -24,7 +24,7 @@
     <color name="homepage_bg">#f0f3f4</color>
     <color name="homepage_red_line">#e64a4d</color>
     <color name="homepage_line">#e5e5e5</color>
-    <color name="red" >#ff0000</color>
+    <color name="red">#ff0000</color>
     <color name="order_goods_shape_color">#EFEEEC</color>
     <color name="colorBlue3">#587899</color>
     <color name="colorGary">#e9ecf0</color>
@@ -35,8 +35,9 @@
     <color name="colorBuy">#6F98C3</color>
     <color name="colorBlue2">#6E96C1</color>
     <color name="colorGoodsize">#2C2F34</color>
-    <color name="top_color" >#ff2f56</color>
+    <color name="top_color">#ff2f56</color>
     <color name="gray_i">#fafafa</color>
-
-
+    <color name="colorBule">#398DEE</color>
+    <color name="background_dark">#212121</color>
+    <color name="black_80">#222222</color>
 </resources>
