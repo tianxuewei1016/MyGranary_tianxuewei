@@ -14,15 +14,14 @@ import java.util.List;
  */
 
 public abstract class MyBaseAdapter<T> extends RecyclerView.Adapter<BaseViewHodler> {
-
-    private final Context context;
-    private final List<T> datas;
+    protected final Context mContext;
+    public List<T> datas;
     protected LayoutInflater inflater;
 
-    public MyBaseAdapter(Context context, List<T> data) {
-        this.context = context;
+    public MyBaseAdapter(Context mContext, List<T> data) {
         this.datas = data;
-        inflater = LayoutInflater.from(context);
+        this.mContext = mContext;
+        inflater = LayoutInflater.from(mContext);
     }
 
     @Override
@@ -38,14 +37,15 @@ public abstract class MyBaseAdapter<T> extends RecyclerView.Adapter<BaseViewHodl
     }
 
     @Override
+    public void onBindViewHolder(BaseViewHodler holder, int position) {
+        holder.setData();
+    }
+
+    @Override
     public BaseViewHodler onCreateViewHolder(ViewGroup parent, int viewType) {
         return setViewHolder(parent);
     }
 
     protected abstract BaseViewHodler setViewHolder(ViewGroup parent);
 
-    @Override
-    public void onBindViewHolder(BaseViewHodler holder, int position) {
-        holder.setData();
-    }
 }
